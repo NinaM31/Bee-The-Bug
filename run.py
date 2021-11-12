@@ -1,12 +1,12 @@
 import sys
 import pygame
 
-from Game import Game
+from GameLogic.Game import Game
 
 if __name__ == '__main__':
 
     game = Game()
-    game.game_over()
+    game.game_intro()
     game.new()
 
     while game.running:
