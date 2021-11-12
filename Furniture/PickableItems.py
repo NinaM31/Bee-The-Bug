@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 import pygame
 
-from Interactable import Interactable
-
+from Furniture.Interactable import Interactable
 
 class CrimeEvidence(pygame.sprite.Sprite, Interactable):
     def __init__(self):

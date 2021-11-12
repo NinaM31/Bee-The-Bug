@@ -1,5 +1,5 @@
 import pygame
-from Objects import Objects
+from Furniture.Interactable import Interactable
 
 class Furniture(pygame.sprite.Sprite, Interactable):
     def __init__(self, passable):

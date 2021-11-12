@@ -1,7 +1,7 @@
 import pygame 
 
-from PickableItems import CrimeEvidence
-from Barriers import Furniture
+from Furniture.PickableItems import CrimeEvidence
+from Furniture.Barriers import Furniture
 
 class House:
     def __init__(self):
