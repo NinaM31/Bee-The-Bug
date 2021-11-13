@@ -5,7 +5,7 @@ from Components.Styles import Spritesheet
 
 
 class Button:
-    def __init__(self, txt, w, h, c_left=False, c_mid=False, c_right=False, x=0, y=0, fg=WHITE, bg=BERRY,bg_hvr=PINK):
+    def __init__(self, txt, w, h, x=0, y=0, c_l=False, c_m=False, c_r=False, fg=WHITE, bg=BERRY, bg_hvr=PINK):
         self.txt = txt
         self.bg = bg
         self.bg_hvr = bg_hvr
@@ -17,7 +17,7 @@ class Button:
         self.image.fill(self.bg)
         self.image_rect = self.image.get_rect()
 
-        if not self.center(c_left, c_mid, c_right, w, h):
+        if not self.center(c_l, c_m, c_r):
             self.image_rect.x = x
             self.image_rect.y = y
 
@@ -26,29 +26,24 @@ class Button:
         
         self.image.blit(self.text, self.text_rect)
     
-    def center(self, c_left, c_mid, c_right, w, h):
-        if c_left:
-            self.center_left(w, h)
-            return True
-        elif c_mid:
-            self.center_mid(w, h)
-            return True
-        elif c_right:
-            self.center_right(w, h)
-            return True
-        return False
+    def center(self, c_l, c_m, c_r):
+        if c_l: self.center_left()
+        elif c_m: self.center_mid()
+        elif c_r: self.center_right()
+
+        return c_l or c_m or c_r
         
-    def center_mid(self, w, h):
+    def center_mid(self):
         x = WIN_WIDTH/2
         y = WIN_HEIGHT - WIN_HEIGHT/3
         self.image_rect.center = (x, y)
     
-    def center_left(self, w, h):
+    def center_left(self):
         x = WIN_WIDTH/6
         y = WIN_HEIGHT - WIN_HEIGHT/3
         self.image_rect.midleft = (x, y)
 
-    def center_right(self, w, h):
+    def center_right(self):
         x = WIN_WIDTH - WIN_WIDTH/6
         y = WIN_HEIGHT - WIN_HEIGHT/3
         self.image_rect.midright = (x, y)
@@ -62,8 +57,8 @@ class Button:
 
     def pressed(self, mouse_pos, mouse_pressed):
         if self.image_rect.collidepoint(mouse_pos):
-            if mouse_pressed[0]:
-                return True
+            if mouse_pressed[0]: return True
+            
         return False
 
     def draw_button(self, screen):

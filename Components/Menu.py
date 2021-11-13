@@ -9,6 +9,7 @@ class Menu(ABC):
     def __init__(self, game, HEADER='', HOWTO='', CAPTION=''):
         self.HEADER = HEADER
         self.HOWTO = HOWTO
+
         self.game = game
         self.screen = game.screen
         self.w = game.screen.get_width()
@@ -23,11 +24,11 @@ class Menu(ABC):
         draw_text(self.screen, BODY, self.HOWTO, self.w/2, self.h/2, WHITE)
 
     def display(self):
-        waiting = True
-        while waiting:
+        self.waiting = True
+        while self.waiting:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    waiting = False
+                    self.waiting = False
                     self.game.running = False
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
@@ -37,6 +38,7 @@ class Menu(ABC):
             self.draw(self.screen)
             self.animation()
             self.game.clock.tick(LOWFPS)
+
             pygame.display.update()
 
     @abstractmethod
@@ -59,15 +61,17 @@ class StartMenu(Menu):
             'Arrows to move, Space to interact',
             'Introduction')
 
-        self.PLAY = Button('Play', 100, 50, c_mid=True)
+        self.PLAY = Button('Play', 100, 50, c_m=True)
 
     def check_buttons(self):
         mouse_pos = pygame.mouse.get_pos()
         mouse_pressed = pygame.mouse.get_pressed()
         
-        self.PLAY.hovered(mouse_pos)
         if self.PLAY.pressed(mouse_pos, mouse_pressed):
-            print('pressed')
+            self.waiting = False
+            self.game.playing = True
+            self.game.new()
+            self.game.play()
     
     def draw(self, screen):
         self.PLAY.draw_button(screen)
@@ -85,19 +89,22 @@ class EndMenu(Menu):
             'FIN', 
             'Tell me detective, do you believe in luck?',
             'Nice Game')
-        self.BACK = Button('Back', 100, 50, c_mid=True)
+
+        self.END = Button('Back to Start', 140, 50, c_m=True)
 
     def check_buttons(self):
         mouse_pos = pygame.mouse.get_pos()
         mouse_pressed = pygame.mouse.get_pressed()
 
-        if self.BACK.pressed(mouse_pos, mouse_pressed):
-            print('pressed')
+        if self.END.pressed(mouse_pos, mouse_pressed):
+            self.waiting = False
+            self.game.game_intro()
     
     def draw(self, screen):
-        self.BACK.draw_button(screen)
+        self.END.draw_button(screen)
+
         mouse_pos = pygame.mouse.get_pos()
-        self.BACK.hovered(mouse_pos)
+        self.END.hovered(mouse_pos)
 
     def animation(self):
         pass
@@ -106,9 +113,9 @@ class SettingsMenu(Menu):
     def __init__(self, game):
         super().__init__(game, 'Settings', CAPTION='Settings')
 
-        self.SOUND = Button('Sound', 100, 50, c_right=True)
-        self.CONTINUE = Button('Continue', 100, 50, c_mid=True)
-        self.BACK = Button('Back', 100, 50, c_left=True)
+        self.SOUND = Button('Sound', 100, 50, c_r=True)
+        self.CONTINUE = Button('Continue', 100, 50, c_m=True)
+        self.BACK = Button('Back', 100, 50, c_l=True)
 
     def check_buttons(self):
         mouse_pos = pygame.mouse.get_pos()

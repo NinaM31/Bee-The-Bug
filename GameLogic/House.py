@@ -4,7 +4,8 @@ from Furniture.PickableItems import CrimeEvidence
 from Furniture.Barriers import Furniture
 
 class House:
-    def __init__(self):
+    def __init__(self, house_map):
+        self.house_map = house_map
         self.floor = Floor()
         self.door = Door()
         self.crimeEvidence = CrimeEvidence()
