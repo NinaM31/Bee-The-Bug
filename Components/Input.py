@@ -1,14 +1,73 @@
+import pygame 
+
+from Components.Config import WHITE, BERRY, PINK, BODY, WIN_WIDTH, WIN_HEIGHT
+from Components.Styles import Spritesheet
+
+
 class Button:
-    def __init__(self, txt, bg, fg, x, y):
+    def __init__(self, txt, w, h, c_left=False, c_mid=False, c_right=False, x=0, y=0, fg=WHITE, bg=BERRY,bg_hvr=PINK):
         self.txt = txt
         self.bg = bg
+        self.bg_hvr = bg_hvr
         self.fg = fg
-        # self.size = size
-        self.x = x
-        self.y = y
+
+        self.font = pygame.font.Font(None, BODY)
+
+        self.image = pygame.Surface( (w, h) )
+        self.image.fill(self.bg)
+        self.image_rect = self.image.get_rect()
+
+        if not self.center(c_left, c_mid, c_right, w, h):
+            self.image_rect.x = x
+            self.image_rect.y = y
+
+        self.text  = self.font.render(txt, True, fg)
+        self.text_rect = self.text.get_rect(center=(w/2, h/2) )
+        
+        self.image.blit(self.text, self.text_rect)
+    
+    def center(self, c_left, c_mid, c_right, w, h):
+        if c_left:
+            self.center_left(w, h)
+            return True
+        elif c_mid:
+            self.center_mid(w, h)
+            return True
+        elif c_right:
+            self.center_right(w, h)
+            return True
+        return False
+        
+    def center_mid(self, w, h):
+        x = WIN_WIDTH/2
+        y = WIN_HEIGHT - WIN_HEIGHT/3
+        self.image_rect.center = (x, y)
+    
+    def center_left(self, w, h):
+        x = WIN_WIDTH/6
+        y = WIN_HEIGHT - WIN_HEIGHT/3
+        self.image_rect.midleft = (x, y)
+
+    def center_right(self, w, h):
+        x = WIN_WIDTH - WIN_WIDTH/6
+        y = WIN_HEIGHT - WIN_HEIGHT/3
+        self.image_rect.midright = (x, y)
+
+    def hovered(self, mouse_pos):
+        if self.image_rect.collidepoint(mouse_pos):
+            self.image.fill(self.bg_hvr)
+        else:
+            self.image.fill(self.bg)
+        self.image.blit(self.text, self.text_rect)
 
     def pressed(self, mouse_pos, mouse_pressed):
-        pass
+        if self.image_rect.collidepoint(mouse_pos):
+            if mouse_pressed[0]:
+                return True
+        return False
+
+    def draw_button(self, screen):
+        screen.blit(self.image, self.image_rect)
 
 class Text_input:
     def __init__(self):

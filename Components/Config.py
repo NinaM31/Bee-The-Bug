@@ -1,14 +1,18 @@
 WIN_WIDTH = 500
 WIN_HEIGHT = 500
-BTN_SIZE = 50
 
+# Text size
 TITLE = 50
 BODY = 28
 
 FPS = 60
-LOWFPS = 30
+LOWFPS = 35
 
 # Colors
 BLACK = (10, 10, 10)
 WHITE = (200, 200, 200)
 DARKBLUE = (44, 54, 69)
+BERRY = (177, 56, 92)
+PINK = (240, 145, 144)
+FG_BTN = WHITE
+BG_BTN = 'assets/bg_btn.png'

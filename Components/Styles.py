@@ -1,5 +1,18 @@
 import pygame
 
+from Components.Config import BLACK
+
+
+class Spritesheet:
+    def __init__(self, file):
+        self.sheet = pygame.image.load(file).convert()
+
+    def get_sprite(self, x, y, width, height):
+        sprite = pygame.Surface( [width, height] )
+        sprite.set_colorkey(BLACK)
+        sprite.blit( self.sheet, (0,0), (x, y, width, height) )
+        return sprite
+
 def draw_text(screen, size, text, x, y, color):
     font = pygame.font.Font(None, size)
     text_surface = font.render(text, True, color)
