@@ -18,6 +18,8 @@ class Game:
         self.settingsMenue = SettingsMenu(self)
 
         self.world_spritesheet = Spritesheet('assets/all.png')
+        self.water_spritesheet = Spritesheet('assets/water.png')
+        self.water_fall_spritesheet = Spritesheet('assets/waterfall.png')
         self.character_spritesheet = Spritesheet('assets/player.png')
 
     def game_intro(self):
