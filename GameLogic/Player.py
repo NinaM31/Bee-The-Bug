@@ -7,7 +7,7 @@ from Components.Config import PLAYER_LAYER, TILESIZE, PLAYER_SPEED
 class Player(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
-        self._layer = 10
+        self._layer = PLAYER_LAYER
         self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
@@ -45,8 +45,6 @@ class Player(pygame.sprite.Sprite):
             self.game.character_spritesheet.get_sprite(32, 96, TILESIZE, TILESIZE),
             self.game.character_spritesheet.get_sprite(64, 96, TILESIZE, TILESIZE),
         ]
-
-        
 
     def update(self):
         self.movement()
@@ -101,18 +99,19 @@ class Player(pygame.sprite.Sprite):
                 if self.animation_loop > 3:
                     self.animation_loop = 1
 
-    def coliide_bridge(self, direction):
-        if direction == 'x':
-                if self.x_change > 0:
-                    self.move_sprite_left()
-                if self.x_change < 0:
-                    self.move_sprite_right() 
+    def collide_bridge(self, direction):
+        pass
+        # if direction == 'x':
+        #         if self.x_change > 0:
+        #             self.move_sprite_left()
+        #         if self.x_change < 0:
+        #             self.move_sprite_right() 
                     
-        if direction == 'y':
-            if self.y_change > 0:
-                self.move_sprite_up()
-            if self.y_change < 0:
-                self.move_sprite_down()
+        # if direction == 'y':
+        #     if self.y_change > 0:
+        #         self.move_sprite_up()
+        #     if self.y_change < 0:
+        #         self.move_sprite_down()
 
     def collide_blocks(self, direction):
         onBridge = pygame.sprite.spritecollide(self, self.game.bridge_sprites, False)
@@ -139,7 +138,7 @@ class Player(pygame.sprite.Sprite):
                         self.move_sprite_down()
                         self.rect.y = hits[0].rect.bottom
         else:
-            self.coliide_bridge(direction)
+            self.collide_bridge(direction)
 
     def move_sprite_left(self):
         for sprite in self.game.all_sprites:

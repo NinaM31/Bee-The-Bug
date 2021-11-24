@@ -28,12 +28,15 @@ class Ground(pygame.sprite.Sprite):
 
 class Plant(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
-        self._layer = Plant_LAYER
-
         if t == 'T':
-            self.groups = game.all_sprites, game.obstacle_sprites
+            self._layer = TREE_LAYER
         else:
-            self.groups = game.all_sprites
+            self._layer = PLANT_LAYER
+
+        # if t == 'T':
+        #     self.groups = game.all_sprites, game.obstacle_sprites
+        # else:
+        self.groups = game.all_sprites
             
         pygame.sprite.Sprite.__init__(self, self.groups)
 
@@ -44,7 +47,7 @@ class Plant(pygame.sprite.Sprite):
 
 class OnRoad(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
-        self._layer = BRIDGE_LAYER
+        self._layer = OBJECT_LAYER
         self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
@@ -55,7 +58,7 @@ class OnRoad(pygame.sprite.Sprite):
 
 class Accesories(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
-        self._layer = BRIDGE_LAYER
+        self._layer = OBJECT_LAYER
         self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
@@ -68,6 +71,17 @@ class Bridge(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
         self._layer = BRIDGE_LAYER
         self.groups = game.all_sprites, game.bridge_sprites
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.image = game.world_spritesheet.get_sprite(loc_x, loc_y, w, h)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+class House(pygame.sprite.Sprite):
+    def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
+        self._layer = OBJECT_LAYER
+        self.groups = game.all_sprites, game.obstacle_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.image = game.world_spritesheet.get_sprite(loc_x, loc_y, w, h)

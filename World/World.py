@@ -60,11 +60,20 @@ class World():
         onRoad_data = self.read_data('data/onRoad.txt')
         self.__generate(onRoad_data, OnRoad_coordinates, 'OnRoad')
 
+    def generate_houses(self):
+        for i in range(2):
+            house_data= self.read_data(f'data/house{i+1}.txt')
+            coordinates= eval(f'H{i+1}_coordinates')
+            self.__generate(house_data, coordinates, 'House')
+
     def generate_world(self):
-        Player(self.game, 10, 5)
         self.generate_land()
         self.generate_water()
         self.generate_plants()
+        
+        self.generate_houses()
         self.generate_onRoad()
         self.Home_accessories()
         self.generate_bridges()
+
+        Player(self.game, 6, 9)

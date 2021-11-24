@@ -63,3 +63,29 @@ Home_accessories_coordinates = {
     'M': (128, 895), #mail box
     'BS': (128, 2657), #bank sign
 }
+
+H1_coordinates = {
+    'B': (32, 1536), #base wall
+    'EL': (0, 1536), #wall left edge
+    'ER': (64, 1536), #wall right edge
+    'C': (4, 1536), #wall center
+    'LW': (0, 1536), #wall left
+    'RW': (64, 1536), #wall right
+    'R': (32, 2240), #roof
+    'CH': (228, 2240), #chimney
+    'D': (224, 2048), #door
+    'W': (160, 2376), #window
+}
+
+H2_coordinates = {
+    'B': (32, 1472), #base wall
+    'EL': (0, 1472), #wall left edge
+    'ER': (64, 1472), #wall right edge
+    'C': (4, 1472), #wall center
+    'LW': (0, 1472), #wall left
+    'RW': (64, 1472), #wall right
+    'R': (0, 2240), #roof
+    'CH': (228, 2240), #chimney
+    'D': (224, 1472), #door
+    'W': (160, 2376), #window
+}
