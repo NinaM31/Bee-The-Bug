@@ -16,12 +16,10 @@ class Game:
         self.startMenue = StartMenu(self)
         self.endMenue = EndMenu(self)
         self.settingsMenue = SettingsMenu(self)
-
-        self.intro_background = pygame.image.load('assets/world_map.png')
+        
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
-        self.water_fall_spritesheet = Spritesheet('assets/waterfall.png')
-        self.character_spritesheet = Spritesheet('assets/player.png')
+        self.character_spritesheet = Spritesheet('assets/bee.png')
 
     def game_intro(self):
         self.startMenue.display()
@@ -35,7 +33,7 @@ class Game:
     def new(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.obstacle_sprites = pygame.sprite.LayeredUpdates()
-        self.obstacles = pygame.sprite.LayeredUpdates()
+        self.bridge_sprites = pygame.sprite.LayeredUpdates()
 
         self.world = World(self)
         self.world.generate_world()
