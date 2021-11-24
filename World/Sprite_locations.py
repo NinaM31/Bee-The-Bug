@@ -115,3 +115,16 @@ H4_coordinates = {
     'D': (224, 1408), #door
     'W': (32, 2376), #window
 }
+
+H5_coordinates = {
+    'B': (32, 2112), #base wall
+    'EL': (0, 2112), #wall left edge
+    'ER': (64, 2112), #wall right edge
+    'C': (4, 2112), #wall center
+    'LW': (0, 2112), #wall left
+    'RW': (64, 2112), #wall right
+    'R': (96, 2240), #roof
+    'CH': (228, 2240), #chimney
+    'G': (128, 2562), #gate
+    'W': (32, 2376), #window
+}

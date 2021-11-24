@@ -61,7 +61,7 @@ class World():
         self.__generate(onRoad_data, OnRoad_coordinates, 'OnRoad')
 
     def generate_houses(self):
-        for i in range(4):
+        for i in range(5):
             house_data= self.read_data(f'data/house{i+1}.txt')
             coordinates= eval(f'H{i+1}_coordinates')
             self.__generate(house_data, coordinates, 'House')
