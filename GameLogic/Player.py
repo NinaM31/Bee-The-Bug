@@ -107,6 +107,7 @@ class Player(pygame.sprite.Sprite):
                     self.move_sprite_left()
                 if self.x_change < 0:
                     self.move_sprite_right() 
+                    
         if direction == 'y':
             if self.y_change > 0:
                 self.move_sprite_up()
@@ -133,7 +134,7 @@ class Player(pygame.sprite.Sprite):
                     if self.y_change > 0:
                         self.move_sprite_up()
                         self.rect.y = hits[0].rect.top - self.rect.height
-                        
+
                     if self.y_change < 0:
                         self.move_sprite_down()
                         self.rect.y = hits[0].rect.bottom

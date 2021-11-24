@@ -3,7 +3,7 @@ import pygame
 from Components.Config import WIN_WIDTH, WIN_HEIGHT, FPS, BLACK
 from Components.Menu import StartMenu, EndMenu, SettingsMenu
 from Components.Styles import Spritesheet
-from GameLogic.World import World
+from World.World import World
 
 class Game:
     def __init__(self):
@@ -16,7 +16,7 @@ class Game:
         self.startMenue = StartMenu(self)
         self.endMenue = EndMenu(self)
         self.settingsMenue = SettingsMenu(self)
-        
+
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
         self.character_spritesheet = Spritesheet('assets/bee.png')
