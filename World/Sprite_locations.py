@@ -21,7 +21,7 @@ Water_coordinates = {
 Bridge_coordinates = {
     'SL': (0, 1056), #side left
     'SC': (32, 1056), #side center
-    'SR': (0, 1056), #side right
+    'SR': (64, 1056), #side right
     'FT': (103, 1056), #front top
     'FC': (103, 1087), #front center
     'FB': (103, 1119), #front bottom
