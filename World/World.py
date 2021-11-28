@@ -10,6 +10,19 @@ class World():
     def __init__(self, game):
         self.world_map = world_map[:][:]
         self.game = game
+        self.outside_audio = "assets/background.mp3"
+        
+    def load_assets(self, audio=None):
+        if not audio:
+            audio = self.outside_audio
+        pygame.mixer.music.load(audio)
+
+    def start_sound(self, volume):
+        pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(volume)
+
+    def stop_audio(self):
+         pygame.mixer.music.stop()
 
     def read_data(self, file):
         with open(file) as f:

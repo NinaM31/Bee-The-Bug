@@ -1,11 +1,11 @@
 import pygame 
 
-from Components.Config import WHITE, BERRY, PINK, BODY, WIN_WIDTH, WIN_HEIGHT
+from Components.Config import WHITE, BERRY, GOLD, BODY, WIN_WIDTH, WIN_HEIGHT
 from Components.Styles import Spritesheet
 
 
 class Button:
-    def __init__(self, txt, w, h, x=0, y=0, c_l=False, c_m=False, c_r=False, fg=WHITE, bg=BERRY, bg_hvr=PINK):
+    def __init__(self, txt, w, h, x=0, y=0, c_l=False, c_m=False, c_r=False, fg=WHITE, bg=BERRY, bg_hvr=GOLD):
         self.txt = txt
         self.bg = bg
         self.bg_hvr = bg_hvr

@@ -9,7 +9,6 @@ if __name__ == '__main__':
  
     while game.running:
         game.play()
-        game.game_over()
     
     pygame.quit()
     sys.exit()

@@ -33,9 +33,6 @@ class Plant(pygame.sprite.Sprite):
         else:
             self._layer = PLANT_LAYER
 
-        # if t == 'T':
-        #     self.groups = game.all_sprites, game.obstacle_sprites
-        # else:
         self.groups = game.all_sprites
             
         pygame.sprite.Sprite.__init__(self, self.groups)
@@ -81,7 +78,10 @@ class Bridge(pygame.sprite.Sprite):
 class House(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
         self._layer = OBJECT_LAYER
-        self.groups = game.all_sprites, game.obstacle_sprites
+        if t != 'D':
+            self.groups = game.all_sprites, game.obstacle_sprites
+        else:
+            self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.image = game.world_spritesheet.get_sprite(loc_x, loc_y, w, h)
