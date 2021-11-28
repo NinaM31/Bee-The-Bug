@@ -1,6 +1,6 @@
 import pygame
 
-from Components.Config import BLACK
+from Components.Config import BLACK, WHITE
 
 
 class Spritesheet:
@@ -13,7 +13,7 @@ class Spritesheet:
         sprite.blit( self.sheet, (0,0), (loc_x, loc_y, width, height) )
         return sprite
 
-def draw_text(screen, size, text, x, y, color):
+def draw_text(screen, size, text, x, y, color=WHITE):
     font = pygame.font.Font(None, size)
     text_surface = font.render(text, True, color)
     text_rect = text_surface.get_rect()

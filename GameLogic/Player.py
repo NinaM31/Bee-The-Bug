@@ -7,7 +7,6 @@ from Components.Config import PLAYER_LAYER, TILESIZE, PLAYER_SPEED
 class Player(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
-        self.moving_audio = pygame.mixer.Sound("assets/moving.mp3")
 
         self._layer = PLAYER_LAYER
         self.groups = game.all_sprites
@@ -101,9 +100,6 @@ class Player(pygame.sprite.Sprite):
                 if self.animation_loop > 3:
                     self.animation_loop = 1
 
-    def make_sound(self):
-        self.moving_audio.play()
-
     def collide_bridge(self, direction):
         pass
         # if direction == 'x':
@@ -164,25 +160,21 @@ class Player(pygame.sprite.Sprite):
     def movement(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            self.make_sound()
             self.move_sprite_left()
             self.x_change -= PLAYER_SPEED
             self.facing = 'left'
 
         if keys[pygame.K_RIGHT]:
-            self.make_sound()
             self.move_sprite_right()
             self.x_change += PLAYER_SPEED
             self.facing = 'right' 
         
         if keys[pygame.K_UP]:
-            self.make_sound()
             self.move_sprite_up()
             self.y_change -= PLAYER_SPEED
             self.facing = 'up'
                   
         if keys[pygame.K_DOWN]:
-            self.make_sound()
             self.move_sprite_down()
             self.y_change += PLAYER_SPEED
             self.facing = 'down'  

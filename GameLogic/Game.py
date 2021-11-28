@@ -4,6 +4,9 @@ from Components.Config import WIN_WIDTH, WIN_HEIGHT, FPS, BLACK, BKGAUDIO
 from Components.Menu import StartMenu, EndMenu, SettingsMenu
 from Components.Styles import Spritesheet
 from Components.Stories import Stories
+
+from GameLogic.Timer import Timer
+
 from World.World import World
 
 class Game:
@@ -21,6 +24,7 @@ class Game:
         self.settingsMenue = SettingsMenu(self)
 
         self.stories = Stories(self)
+        self.timer = Timer()
 
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
@@ -51,6 +55,7 @@ class Game:
 
         self.world.load_assets()
         self.world.start_sound(BKGAUDIO)
+        self.timer.start()
         self.world.generate_world()
 
     def update(self):
@@ -65,6 +70,7 @@ class Game:
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
         self.clock.tick(FPS)
+        self.timer.tick(self.screen)
         pygame.display.update()
 
     def play(self):
@@ -72,3 +78,4 @@ class Game:
             self.events()
             self.update()
             self.draw()
+            
