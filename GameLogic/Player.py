@@ -7,7 +7,7 @@ from Components.Input import Feedback
 class Player(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
-
+        self.interacted = False
         self._layer = PLAYER_LAYER
         self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
@@ -123,9 +123,12 @@ class Player(pygame.sprite.Sprite):
                 if keys[pygame.K_SPACE]:
                     pass
                 hit.interact()
+                self.interacted = True
         else:
-            for sprite in self.game.interact_sprites:
-                sprite.uninteract()
+            if self.interacted:
+                for sprite in self.game.interact_sprites:
+                    sprite.uninteract()
+                self.interacted = False
             
     def collide_blocks(self, direction):
         onBridge = pygame.sprite.spritecollide(self, self.game.bridge_sprites, False)
