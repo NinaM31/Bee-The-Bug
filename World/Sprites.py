@@ -15,6 +15,17 @@ class Water(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 
+class Border(pygame.sprite.Sprite):
+    def __init__(self, game, x, y, w, h, loc_x, loc_y):
+        self._layer = BORDER_LAYER
+        self.groups = game.all_sprites, game.obstacle_sprites
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.image = game.world_spritesheet.get_sprite(loc_x, loc_y, w, h)
+        self.rect = self.image.get_rect()
+        self.rect.x = x * TILESIZE
+        self.rect.y = y * TILESIZE
+
 class Ground(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y):
         self._layer = GROUND_LAYER

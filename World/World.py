@@ -10,7 +10,7 @@ class World():
     def __init__(self, game):
         self.world_map = world_map[:][:]
         self.game = game
-        self.outside_audio = "assets/background.mp3"
+        self.outside_audio = "assets/audio/background.mp3"
         
     def load_assets(self, audio=None):
         if not audio:
@@ -79,10 +79,31 @@ class World():
             coordinates= eval(f'H{i+1}_coordinates')
             self.__generate(house_data, coordinates, 'House')
 
+    def generate_borders(self):
+        for i in range(1):
+            for j in range(40):
+                Border(self.game, i, j, 10, 32, 32, 0)
+        
+        for i in range(51):
+            for j in range(1):
+                Border(self.game, i, j, 32, 10, 32, 0)
+
+        for i in range(51):
+            for j in range(40):
+                if i == 50:
+                    Border(self.game, i, j, 10, 32, 32, 0)
+
+        for i in range(51):
+            for j in range(40):
+                if j == 39:
+                    Border(self.game, i, j+1, 32, 10, 32, 0)
+
     def generate_world(self):
+        self.generate_borders()
         self.generate_land()
         self.generate_water()
         self.generate_plants()
+        
         
         self.generate_houses()
         self.generate_onRoad()

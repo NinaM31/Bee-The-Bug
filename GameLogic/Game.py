@@ -1,3 +1,4 @@
+import sys
 import pygame
 
 from Components.Config import WIN_WIDTH, WIN_HEIGHT, FPS, BLACK, BKGAUDIO
@@ -23,7 +24,6 @@ class Game:
         self.endMenue = EndMenu(self)
         self.settingsMenue = SettingsMenu(self)
 
-        self.stories = Stories(self)
         self.timer = Timer()
 
         self.world_spritesheet = Spritesheet('assets/all.png')
@@ -33,11 +33,16 @@ class Game:
     def close_game(self):
         self.playing = False
         self.running = False
+        pygame.quit()
+        sys.exit()
 
     def game_intro(self):
         self.startMenue.load_assets()
         self.startMenue.display()
-        # self.stories.beggining()
+
+        self.init_sprites()
+        self.stories = Stories(self)
+        self.stories.beggining()
 
     def show_settings(self):
         self.settingsMenue.display()
@@ -46,11 +51,12 @@ class Game:
         self.endMenue.load_assets()
         self.endMenue.display()
     
-    def new(self):
+    def init_sprites(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.obstacle_sprites = pygame.sprite.LayeredUpdates()
         self.bridge_sprites = pygame.sprite.LayeredUpdates()
 
+    def new(self):
         self.world = World(self)
 
         self.world.load_assets()
