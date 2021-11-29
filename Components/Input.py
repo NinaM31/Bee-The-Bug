@@ -13,7 +13,7 @@ class Button:
 
         self.font = pygame.font.Font(None, BODY)
 
-        self.image = pygame.Surface( (w, h) )
+        self.image = pygame.Surface( (w, h), pygame.SRCALPHA)
         self.image.fill(self.bg)
         self.image_rect = self.image.get_rect()
 
@@ -25,6 +25,8 @@ class Button:
         self.text_rect = self.text.get_rect(center=(w/2, h/2) )
         
         self.image.blit(self.text, self.text_rect)
+        self.click_audio = pygame.mixer.Sound("assets/audio/click.mp3")
+        self.click_audio.set_volume(0.1)
     
     def center(self, c_l, c_m, c_r):
         if c_l: self.center_left()
@@ -57,7 +59,9 @@ class Button:
 
     def pressed(self, mouse_pos, mouse_pressed):
         if self.image_rect.collidepoint(mouse_pos):
-            if mouse_pressed[0]: return True
+            if mouse_pressed[0]: 
+                self.click_audio.play(maxtime=500)
+                return True
             
         return False
 

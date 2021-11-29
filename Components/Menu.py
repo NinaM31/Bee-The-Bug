@@ -9,9 +9,8 @@ class Menu(ABC):
     def __init__(self, game, HEADER='', HOWTO='', CAPTION=''):
         self.HEADER = HEADER
         self.HOWTO = HOWTO
-
+        
         self.game = game
-        self.waiting = True
         self.screen = game.screen
         self.w = game.screen.get_width()
         self.h = game.screen.get_height()
@@ -32,6 +31,7 @@ class Menu(ABC):
         draw_text(self.screen, BODY, self.HOWTO, self.w/2, self.h/2, self.fg_color)
 
     def display(self):
+        self.waiting = True
         while self.waiting:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -76,7 +76,7 @@ class StartMenu(Menu):
         self.fg_color = BLACK
 
         self.background = pygame.image.load('assets/intro.png').convert()
-        self._audio = "assets/intro.mp3"
+        self._audio = "assets/audio/intro.mp3"
 
     def check_buttons(self):
         mouse_pos = pygame.mouse.get_pos()
@@ -85,8 +85,8 @@ class StartMenu(Menu):
         if self.PLAY.pressed(mouse_pos, mouse_pressed):
             self.stop_audio()
             self.waiting = False
-            self.game.playing = True
-            self.game.new()
+            # self.game.playing = True
+            # self.game.new()
     
     def draw(self, screen):
         self.PLAY.draw_button(screen)
@@ -113,7 +113,7 @@ class EndMenu(Menu):
         self.fg_color = WHITE
 
         self.background = pygame.image.load('assets/end.png').convert()
-        self._audio = "assets/end.mp3"
+        self._audio = "assets/audio/end.mp3"
 
     def check_buttons(self):
         mouse_pos = pygame.mouse.get_pos()
