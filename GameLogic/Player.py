@@ -2,7 +2,7 @@ import math
 import pygame
 
 from Components.Config import PLAYER_LAYER, TILESIZE, PLAYER_SPEED
-
+from Components.Input import Feedback
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
@@ -50,6 +50,7 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.movement()
         self.animate()
+        self.interact()
 
         self.rect.x += self.x_change
         self.collide_blocks('x')
@@ -114,6 +115,18 @@ class Player(pygame.sprite.Sprite):
         #     if self.y_change < 0:
         #         self.move_sprite_down()
 
+    def interact(self):
+        hits = pygame.sprite.spritecollide(self, self.game.interact_sprites, False)
+        if hits:
+            keys = pygame.key.get_pressed()
+            for hit in hits:
+                if keys[pygame.K_SPACE]:
+                    pass
+                hit.interact()
+        else:
+            for sprite in self.game.interact_sprites:
+                sprite.uninteract()
+            
     def collide_blocks(self, direction):
         onBridge = pygame.sprite.spritecollide(self, self.game.bridge_sprites, False)
 

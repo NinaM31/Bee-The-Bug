@@ -16,7 +16,7 @@ class Stories:
         self.ladybug_story = Spritesheet('assets/stories/lady.png')
         self.bee_story = Spritesheet('assets/stories/bee.png')
 
-        self.ladyBug = NPC(game, self.ladybug_story, 400, 150)
+        self.ladyBug = NPC(game, self.ladybug_story, 450, 150)
         self.bee = NPC(game, self.bee_story, 100, 120)
 
         self.current_page = 0

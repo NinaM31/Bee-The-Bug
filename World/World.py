@@ -110,4 +110,4 @@ class World():
         self.Home_accessories()
         self.generate_bridges()
 
-        Player(self.game, 6, 9)
+        Player(self.game, 7, 9)

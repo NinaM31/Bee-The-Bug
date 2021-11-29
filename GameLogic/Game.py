@@ -29,6 +29,7 @@ class Game:
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
         self.character_spritesheet = Spritesheet('assets/bee.png')
+        self.interactable = Spritesheet('assets/interactable.png')
 
     def close_game(self):
         self.playing = False
@@ -54,6 +55,7 @@ class Game:
     def init_sprites(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.obstacle_sprites = pygame.sprite.LayeredUpdates()
+        self.interact_sprites = pygame.sprite.LayeredUpdates()
         self.bridge_sprites = pygame.sprite.LayeredUpdates()
 
     def new(self):

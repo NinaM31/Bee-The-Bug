@@ -68,6 +68,6 @@ class Button:
     def draw_button(self, screen):
         screen.blit(self.image, self.image_rect)
 
-class Text_input:
+class Feedback:
     def __init__(self):
         pass

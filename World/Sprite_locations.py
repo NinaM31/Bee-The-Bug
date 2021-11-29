@@ -1,7 +1,11 @@
 '''
 The pixel coordinates inside sprite file
 '''
-
+interactable = {
+    'F': (60, 0, (98, 98)),
+    'H': (0, 0, (32, 32)),
+    'D': (0, 0),
+}
 Water_coordinates = {
     'W': (192, 36),
     'L': (160, 32),
