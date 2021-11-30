@@ -83,7 +83,7 @@ class World():
             house_data= self.read_data(f'data/house{i+1}.txt')
             coordinates= eval(f'H{i+1}_coordinates')
             house= self.read_data(f'data/house_{i+1}.txt')
-            self.__generate(house_data, coordinates, 'House', house)
+            self.__generate(house_data, coordinates, 'House', (house, i+1))
 
     def generate_borders(self):
         for i in range(1):

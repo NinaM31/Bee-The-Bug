@@ -204,6 +204,7 @@ house_1 = {
     'LS': (63, 3900), #letters
     'L':(38, 3903), #letter
     'CH': (130, 3424), #chest
+    0: (14, 12) #width, height
 }
 
 house_2 = {
@@ -219,23 +220,17 @@ house_2 = {
     'NC': (96, 3010), #nice chair
     'J': (0, 4030), #Jewelry
     'K': (96, 3072), #kitchen table
-    'KS': (128, 3072) #kitchen sink
+    'KS': (128, 3072), #kitchen sink
+    0: (14, 12) #width, height
 }
 
+# Ants House
 house_3 = {
-    'V': (0, 2688), #vertical wall
-    'H': (32, 2688), #horizontal wall 
+    'V': (224, 2752), #vertical wall
+    'H': (64, 2784), #horizontal wall 
     'B': (64, 3104), #bed
-    'b': (96, 2848), #book
-    'T': (128, 2816), #table
-    'C': (128, 2880), #chair
-    'BS': (96, 2848), #book shelf
-    'CB': (64, 2848), #cupboard
-    'NT': (96, 2976), #nice table
-    'NC': (96, 3010), #nice chair
-    'J': (0, 4030), #Jewelry
-    'K': (96, 3072), #kitchen table
-    'KS': (128, 3072) #kitchen sink
+    'CA': (128, 1312), #carpet 
+    0: (16, 12) #width, height
 }
 
 house_4 = {
@@ -251,7 +246,8 @@ house_4 = {
     'NC': (96, 3010), #nice chair
     'J': (0, 4030), #Jewelry
     'K': (96, 3072), #kitchen table
-    'KS': (128, 3072) #kitchen sink
+    'KS': (128, 3072), #kitchen sink
+    0: (14, 12) #width, height
 }
 
 house_5 = {
@@ -267,5 +263,6 @@ house_5 = {
     'NC': (96, 3010), #nice chair
     'J': (0, 4030), #Jewelry
     'K': (96, 3072), #kitchen table
-    'KS': (128, 3072) #kitchen sink
+    'KS': (128, 3072), #kitchen sink
+    0: (14, 12) #width, height
 }
