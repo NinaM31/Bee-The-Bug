@@ -95,9 +95,6 @@ class OnRoad(pygame.sprite.Sprite):
         
         self.rect.x = x
         self.rect.y = y
-    
-    def action(self):
-        pass
 
 class Accesories(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
@@ -166,6 +163,3 @@ class House(pygame.sprite.Sprite):
         
         self.rect.x = x
         self.rect.y = y
-
-    def action(self):
-        print('Enter house')

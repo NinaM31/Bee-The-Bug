@@ -53,24 +53,9 @@ class Game:
     def game_over(self):
         self.endMenue.load_assets()
         self.endMenue.display()
-    
-    def show_house(self):
-        self.house_sprites.update()
-        self.player_sprites.update()
-
-        self.screen.fill(BLACK)
-
-        self.house_sprites.draw(self.screen)
-        self.player_sprites.draw(self.screen)
-        
-        self.clock.tick(FPS)
-        self.timer.tick(self.screen)
-        pygame.display.update()
 
     def init_sprites(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
-        self.player_sprites = pygame.sprite.LayeredUpdates()
-        self.house_sprites = pygame.sprite.LayeredUpdates()
         self.obstacle_sprites = pygame.sprite.LayeredUpdates()
         self.interact_sprites = pygame.sprite.LayeredUpdates()
         self.bridge_sprites = pygame.sprite.LayeredUpdates()
@@ -83,16 +68,16 @@ class Game:
         self.timer.start()
         self.world.generate_world()
 
-    def update(self):
-        self.all_sprites.update()
-        self.world.check_inside_house()
-
     def events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.close_game()
+    
+    def update(self):
+        self.all_sprites.update()
 
-    def draw(self): 
+    def draw(self):
+        self.update() 
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
         self.clock.tick(FPS)
@@ -103,4 +88,4 @@ class Game:
         while self.playing:
             self.events()
             self.draw()
-            self.update()
+            self.world.update()

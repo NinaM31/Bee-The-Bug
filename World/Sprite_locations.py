@@ -22,6 +22,41 @@ interactable = {
         (36, 60),
         'Press Enter to get inside'
     ),
+    'b': (
+        118, 136, 
+        (32, 22),
+        'Trip plans to Maldives'
+    ),
+    'J': (
+        118, 104, 
+        (32, 24),
+        'Expensive Jewelry for such house'
+    ),
+    'CA': (
+        1, 32, 
+        (36, 36),
+        'Press Enter to exit'
+    ),
+    'B': (
+        170, 5, 
+        (38, 64),
+        ["You don't have time to sleep!", "Can't sleep now", "Who stole the bank? can't sleep now"]
+    ),
+    'L': (
+        170, 107, 
+        (20, 20),
+        "Message: I'll make you regret leaving me. I will end you'r life!!!"
+    ),
+    'LS': (
+        167, 135, 
+        (30, 20),
+        'Letters from Mr. Fly (ex husband of Ladybug)'
+    ),
+    'CH': (
+        210, 120, 
+        (30, 33),
+        'inside: Old wedding ring... and rotten apple'
+    ),
 }
 Water_coordinates = {
     'W': (192, 36),
@@ -155,7 +190,7 @@ house_1 = {
     'V': (0, 2688), #vertical wall
     'H': (32, 2688), #horizontal wall 
     'B': (64, 3104), #bed
-    'b': (31, 3808), #book
+    'b': (0, 3808), #book
     'T': (128, 2816), #table
     'C': (128, 2880), #chair
     'BS': (96, 2848), #book shelf
@@ -166,6 +201,9 @@ house_1 = {
     'K': (96, 3072), #kitchen table
     'KS': (128, 3072), #kitchen sink
     'CA': (160, 1152), #carpet 
+    'LS': (63, 3900), #letters
+    'L':(38, 3903), #letter
+    'CH': (130, 3424), #chest
 }
 
 house_2 = {

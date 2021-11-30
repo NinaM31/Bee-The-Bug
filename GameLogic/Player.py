@@ -7,9 +7,9 @@ from Components.Input import Feedback
 class Player(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
-    
         self._layer = PLAYER_LAYER
-        self.groups = game.all_sprites, game.player_sprites
+
+        self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.image = game.character_spritesheet.get_sprite(0, 0, TILESIZE, TILESIZE)
@@ -58,9 +58,9 @@ class Player(pygame.sprite.Sprite):
         self.interact()
 
         self.rect.x += self.x_change
-        # self.collide_blocks('x')
+        self.collide_blocks('x')
         self.rect.y += self.y_change
-        # self.collide_blocks('y')
+        self.collide_blocks('y')
 
         self.y_change = 0
         self.x_change = 0
@@ -108,20 +108,10 @@ class Player(pygame.sprite.Sprite):
 
     def collide_bridge(self, direction):
         pass
-        # if direction == 'x':
-        #         if self.x_change > 0:
-        #             self.move_sprite_left()
-        #         if self.x_change < 0:
-        #             self.move_sprite_right() 
-                    
-        # if direction == 'y':
-        #     if self.y_change > 0:
-        #         self.move_sprite_up()
-        #     if self.y_change < 0:
-        #         self.move_sprite_down()
 
     def interact(self):
         hits = pygame.sprite.spritecollide(self, self.game.interact_sprites, False)
+
         if hits:
             keys = pygame.key.get_pressed()
             for hit in hits:
@@ -130,8 +120,11 @@ class Player(pygame.sprite.Sprite):
                     self.display_feed = True
 
                 if keys[pygame.K_RETURN] and self.display_feed:
-                    self.entered_house = True
-                    self.current_house = hit.house
+                    if hit.t in ['D', 'CA']:
+                        self.entered_house = True
+
+                        if hit.t == 'D':
+                            self.current_house = hit.house
                 
                 hit.interact()
                 self.interacting = True
@@ -140,7 +133,7 @@ class Player(pygame.sprite.Sprite):
                 for sprite in self.game.interact_sprites:
                     sprite.uninteract()
                 self.interacting = False
-            
+
     def collide_blocks(self, direction):
         onBridge = pygame.sprite.spritecollide(self, self.game.bridge_sprites, False)
 
@@ -168,36 +161,20 @@ class Player(pygame.sprite.Sprite):
             self.collide_bridge(direction)
 
     def move_sprite_left(self):
-        if self.entered_house:
-            for sprite in self.game.house_sprites:
-                sprite.rect.x += 2
-        else:
-            for sprite in self.game.all_sprites:
-                    sprite.rect.x += PLAYER_SPEED
+        for sprite in self.game.all_sprites:
+                sprite.rect.x += PLAYER_SPEED
 
     def move_sprite_right(self):
-        if self.entered_house:
-            for sprite in self.game.house_sprites:
-                sprite.rect.x -= 2
-        else:
-            for sprite in self.game.all_sprites:
-                    sprite.rect.x -= PLAYER_SPEED
+        for sprite in self.game.all_sprites:
+                sprite.rect.x -= PLAYER_SPEED
 
     def move_sprite_up(self):
-        if self.entered_house:
-            for sprite in self.game.house_sprites:
-                sprite.rect.y += 2
-        else:
-            for sprite in self.game.all_sprites:
-                    sprite.rect.y += PLAYER_SPEED
+        for sprite in self.game.all_sprites:
+                sprite.rect.y += PLAYER_SPEED
     
     def move_sprite_down(self):
-        if self.entered_house:
-            for sprite in self.game.house_sprites:
-                sprite.rect.y -= 2
-        else:
-            for sprite in self.game.all_sprites:
-                    sprite.rect.y -= PLAYER_SPEED
+        for sprite in self.game.all_sprites:
+                sprite.rect.y -= PLAYER_SPEED
                 
     def hide_feedback(self):
         if self.feedback:

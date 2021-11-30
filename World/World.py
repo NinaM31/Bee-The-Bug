@@ -106,11 +106,29 @@ class World():
 
     def check_inside_house(self):
         if self.player.entered_house:
-            self.house = NPC_House(self.game, self.player.current_house, self.player)
-            self.house.inside_house()
+            x, y = self.player.rect.x, self.player.rect.y
+            self.destroy()
             self.player.entered_house = False
 
-    def generate_world(self):
+            self.house = NPC_House(self.game, self.player.current_house)
+            self.house.inside_house()
+            self.create(x, y)  
+
+    def create(self, x, y):
+        self.player = None
+        self.generate_world()
+
+    def destroy(self):
+        for sprite in self.game.all_sprites:
+            sprite.kill() 
+
+    def interact(self):
+        self.player.interact()
+
+    def update(self):
+        self.check_inside_house()
+
+    def generate_world(self, x=7, y=9):
         self.generate_borders()
         self.generate_land()
         self.generate_water()
@@ -121,4 +139,4 @@ class World():
         self.Home_accessories()
         self.generate_bridges()
 
-        self.player = Player(self.game, 7, 9)
+        self.player = Player(self.game, x, y)

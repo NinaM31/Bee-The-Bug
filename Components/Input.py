@@ -72,7 +72,7 @@ class Feedback(pygame.sprite.Sprite):
     def __init__(self, game, sprite, x, y):
         self.game = game
         self._layer = 10
-        self.groups = game.all_sprites
+        self.groups = sprite.groups
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.font = pygame.font.SysFont(None, 32)

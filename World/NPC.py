@@ -29,9 +29,6 @@ class NPC(pygame.sprite.Sprite):
         if self.animation_loop > 3:
             self.animation_loop = 1
 
-    def __passable(self):
-        return False
-    
     def interact(self):
         pass
 
