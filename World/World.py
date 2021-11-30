@@ -2,6 +2,7 @@ import pygame
 
 from GameLogic.data import  *
 from GameLogic.Player import Player
+from Components.Config import TILESIZE
 from World.House import NPC_House
 from World.Sprites import *
 from World.Sprite_locations import *
@@ -106,7 +107,7 @@ class World():
 
     def check_inside_house(self):
         if self.player.entered_house:
-            x, y = self.player.rect.x, self.player.rect.y
+            x, y = self.player.rect.x//TILESIZE, self.player.rect.y//TILESIZE
             self.destroy()
             self.player.entered_house = False
 

@@ -10,7 +10,6 @@ class NPC_House:
         self.inside = True
 
         self.house_data, self.house_id = house_data
-        self.player = Player(self.game, 9, 12)
 
     def event(self):
         for event in pygame.event.get():
@@ -61,6 +60,8 @@ class NPC_House:
         self.generate_floor()
         self.generate_border()
 
+        self.player = Player(self.game, self.j, self.i)
+
         while self.inside:
             self.event()
             self.game.draw()
@@ -83,7 +84,7 @@ class Furniture(pygame.sprite.Sprite):
         self.t = t
         self._layer = FURNITURE_LAYER
 
-        if t in ['V', 'H']:
+        if t in ['V', 'H', 'TT']:
             self.groups = game.all_sprites, game.obstacle_sprites
         elif t in interactable.keys():
             self.groups = game.all_sprites, game.interact_sprites

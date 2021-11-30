@@ -120,12 +120,11 @@ class Player(pygame.sprite.Sprite):
                     self.display_feed = True
 
                 if keys[pygame.K_RETURN] and self.display_feed:
-                    if hit.t in ['D', 'CA']:
+                    if hit.t in ['D', 'G', 'CA']:
                         self.entered_house = True
 
-                        if hit.t == 'D':
+                        if hit.t in ['D', 'G']:
                             self.current_house = hit.house
-                
                 hit.interact()
                 self.interacting = True
         else:

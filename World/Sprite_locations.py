@@ -22,6 +22,11 @@ interactable = {
         (36, 60),
         'Press Enter to get inside'
     ),
+    'G': (
+        8, 181, 
+        (65, 60),
+        'Press Enter to get inside'
+    ),
     'b': (
         118, 136, 
         (32, 22),
@@ -253,17 +258,9 @@ house_4 = {
 }
 
 house_5 = {
-    'V': (0, 2688), #vertical wall
-    'H': (32, 2688), #horizontal wall 
-    'Bb': (64, 3104), #bed
-    'b': (96, 2848), #book
-    'T': (128, 2816), #table
-    'C': (128, 2880), #chair
-    'BS': (96, 2848), #book shelf
-    'CB': (64, 2848), #cupboard
-    'NT': (96, 2976), #nice table
-    'NC': (96, 3010), #nice chair
-    'J': (0, 4030), #Jewelry
-    'K': (96, 3072), #kitchen table
-    'KS': (128, 3072), #kitchen sink
+    'TT': (2, 3397),
+    'CA': (64, 1248),
+    0: (7, 7), #width, height
+    1: ((96, 2720), (0, 2688)), #wall border (front, side)
+    2: (64, 1216), #floor
 }
