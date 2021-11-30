@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from Components.Config import WIN_WIDTH, WIN_HEIGHT, FPS, BLACK, BKGAUDIO
+from Components.Config import WIN_WIDTH, WIN_HEIGHT, FPS, BLACK, BKGAUDIO, WHITE
 from Components.Menu import StartMenu, EndMenu, SettingsMenu
 from Components.Styles import Spritesheet
 from Components.Stories import Stories
@@ -29,7 +29,9 @@ class Game:
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
         self.character_spritesheet = Spritesheet('assets/bee.png')
+        
         self.interactable = Spritesheet('assets/interactable.png')
+        self.feedback_sprite = Spritesheet('assets/feedback.png')
 
     def close_game(self):
         self.playing = False
@@ -84,6 +86,7 @@ class Game:
     def play(self):
         while self.playing:
             self.events()
-            self.update()
             self.draw()
+            self.update()
+            
             

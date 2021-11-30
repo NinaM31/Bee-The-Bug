@@ -68,6 +68,20 @@ class Button:
     def draw_button(self, screen):
         screen.blit(self.image, self.image_rect)
 
-class Feedback:
-    def __init__(self):
-        pass
+class Feedback(pygame.sprite.Sprite):
+    def __init__(self, game, x, y):
+        self.game = game
+        self._layer = 10
+        self.groups = game.all_sprites
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.font = pygame.font.SysFont(None, 32)
+        self.textSurf = self.font.render('sup', 1, BERRY)
+        W = self.textSurf.get_width()
+        H = self.textSurf.get_height()
+
+        self.image = game.feedback_sprite.get_sprite(0, 0, WIN_WIDTH, 200)
+        self.image.blit(self.textSurf, [WIN_WIDTH/2 - W/2, 100/2 - H/2])
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y       

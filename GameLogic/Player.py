@@ -7,7 +7,7 @@ from Components.Input import Feedback
 class Player(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
-        self.interacted = False
+    
         self._layer = PLAYER_LAYER
         self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
@@ -46,6 +46,10 @@ class Player(pygame.sprite.Sprite):
             self.game.character_spritesheet.get_sprite(32, 96, TILESIZE, TILESIZE),
             self.game.character_spritesheet.get_sprite(64, 96, TILESIZE, TILESIZE),
         ]
+
+        self.interacting = False
+        self.display_feed = False
+        self.feedback = None
 
     def update(self):
         self.movement()
@@ -120,15 +124,17 @@ class Player(pygame.sprite.Sprite):
         if hits:
             keys = pygame.key.get_pressed()
             for hit in hits:
-                if keys[pygame.K_SPACE]:
-                    pass
+                if keys[pygame.K_SPACE] and not self.display_feed:
+                    self.feedback = Feedback(self.game, 0, 400)
+                    self.display_feed = True
+                
                 hit.interact()
-                self.interacted = True
+                self.interacting = True
         else:
-            if self.interacted:
+            if self.interacting:
                 for sprite in self.game.interact_sprites:
                     sprite.uninteract()
-                self.interacted = False
+                self.interacting = False
             
     def collide_blocks(self, direction):
         onBridge = pygame.sprite.spritecollide(self, self.game.bridge_sprites, False)
@@ -172,25 +178,34 @@ class Player(pygame.sprite.Sprite):
     def move_sprite_down(self):
         for sprite in self.game.all_sprites:
                 sprite.rect.y -= PLAYER_SPEED
+                
+    def hide_feedback(self):
+        if self.feedback:
+            self.feedback.kill()
+            self.display_feed = False
 
     def movement(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
+            self.hide_feedback()
             self.move_sprite_left()
             self.x_change -= PLAYER_SPEED
             self.facing = 'left'
 
         if keys[pygame.K_RIGHT]:
+            self.hide_feedback()
             self.move_sprite_right()
             self.x_change += PLAYER_SPEED
             self.facing = 'right' 
         
         if keys[pygame.K_UP]:
+            self.hide_feedback()
             self.move_sprite_up()
             self.y_change -= PLAYER_SPEED
             self.facing = 'up'
                   
         if keys[pygame.K_DOWN]:
+            self.hide_feedback()
             self.move_sprite_down()
             self.y_change += PLAYER_SPEED
             self.facing = 'down'  

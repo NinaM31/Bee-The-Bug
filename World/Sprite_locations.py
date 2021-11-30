@@ -4,7 +4,8 @@ The pixel coordinates inside sprite file
 interactable = {
     'F': (60, 0, (98, 98)),
     'H': (0, 0, (32, 32)),
-    'D': (0, 0),
+    'DB': (0, 72, (35, 58)),
+    'D': (50, 106, (36, 60)),
 }
 Water_coordinates = {
     'W': (192, 36),
@@ -46,7 +47,7 @@ OnRoad_coordinates = {
     'W': (162, 160), #broken wood
     'S': (0, 256), #stone
     'B': (192, 896), #wodden board
-    'D': (159, 896), #direction board
+    'DB': (159, 896), #direction board
     'H': (64, 254), #holes
     'A': (64, 3456), #axe on wood
     'SF': (128, 3615), #statue figure
@@ -95,15 +96,15 @@ H2_coordinates = {
 }
 
 H3_coordinates = {
-    'B': (32, 1920), #base wall
-    'EL': (0, 1920), #wall left edge
-    'ER': (64, 1920), #wall right edge
-    'C': (4, 1920), #wall center
-    'LW': (0, 1920), #wall left
-    'RW': (64, 1920), #wall right
+    'B': (32, 1856), #base wall
+    'EL': (0, 1856), #wall left edge
+    'ER': (64, 1856), #wall right edge
+    'C': (4, 1856), #wall center
+    'LW': (0, 1856), #wall left
+    'RW': (64, 1856), #wall right
     'R': (64, 2240), #roof
     'CH': (228, 2240), #chimney
-    'D': (224, 1920), #door
+    'D': (224, 1856), #door
     'W': (192, 2376), #window
 }
 
