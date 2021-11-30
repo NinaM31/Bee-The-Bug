@@ -2,10 +2,26 @@
 The pixel coordinates inside sprite file
 '''
 interactable = {
-    'F': (60, 0, (98, 98)),
-    'H': (0, 0, (32, 32)),
-    'DB': (0, 72, (35, 58)),
-    'D': (50, 106, (36, 60)),
+    'F': (
+        60, 0, 
+        (98, 98),
+        'Nice Fountain, Looks new.'
+    ),
+    'H': (
+        0, 0, 
+        (32, 32),
+        ['Narrow hole on the ground', 'Some narrow hole', 'Hidden hole beside tree']
+    ),
+    'DB': (
+        0, 72, 
+        (35, 58),
+        ['Beeware the water', 'Old bridge be careful', 'Bank in the middle', "Don't cut trees"]
+    ),
+    'D': (
+        50, 106, 
+        (36, 60),
+        'Press Enter to get inside'
+    ),
 }
 Water_coordinates = {
     'W': (192, 36),

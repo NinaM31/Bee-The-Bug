@@ -1,3 +1,4 @@
+import random
 import pygame 
 
 from Components.Config import WHITE, BERRY, GOLD, BODY, WIN_WIDTH, WIN_HEIGHT
@@ -62,21 +63,27 @@ class Button:
             if mouse_pressed[0]: 
                 self.click_audio.play(maxtime=500)
                 return True
-            
         return False
 
     def draw_button(self, screen):
         screen.blit(self.image, self.image_rect)
 
 class Feedback(pygame.sprite.Sprite):
-    def __init__(self, game, x, y):
+    def __init__(self, game, sprite, x, y):
         self.game = game
         self._layer = 10
         self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.font = pygame.font.SysFont(None, 32)
-        self.textSurf = self.font.render('sup', 1, BERRY)
+
+        if isinstance(sprite.text, list):
+            r = random.randint(0, len(sprite.text)-1)
+            text = sprite.text[r]
+        else:
+            text = sprite.text
+
+        self.textSurf = self.font.render(text, 1, BERRY)
         W = self.textSurf.get_width()
         H = self.textSurf.get_height()
 
@@ -84,4 +91,4 @@ class Feedback(pygame.sprite.Sprite):
         self.image.blit(self.textSurf, [WIN_WIDTH/2 - W/2, 100/2 - H/2])
         self.rect = self.image.get_rect()
         self.rect.x = x
-        self.rect.y = y       
+        self.rect.y = y

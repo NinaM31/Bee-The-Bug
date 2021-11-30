@@ -61,7 +61,8 @@ class OnRoad(pygame.sprite.Sprite):
 
         if t in interactable.keys():
             self.groups = game.all_sprites, game.interact_sprites
-            ix, iy, (iw, ih) = interactable[self.t]
+            ix, iy, (iw, ih), text = interactable[self.t]
+            self.text = text
             self.interactable = game.interactable.get_sprite(ix, iy, iw, ih)
         else:
             self.groups = game.all_sprites
@@ -126,7 +127,8 @@ class House(pygame.sprite.Sprite):
 
         if t == 'D':
             self.groups = game.all_sprites, game.interact_sprites
-            ix, iy, (iw, ih) = interactable[self.t]
+            ix, iy, (iw, ih), text = interactable[self.t]
+            self.text = text
             self.interactable = game.interactable.get_sprite(ix, iy, iw, ih)
         else:
             self.groups = game.all_sprites, game.obstacle_sprites
