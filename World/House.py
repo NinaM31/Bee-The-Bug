@@ -21,6 +21,8 @@ class NPC_House:
     def generate_house(self):
         coordinates= eval(f'house_{self.house_id}')
         self.i, self.j = coordinates[0]
+        self.front, self.side = coordinates[1]
+        self.floor = coordinates[2]
  
         for data in self.house_data:
             t = data[0]
@@ -32,27 +34,27 @@ class NPC_House:
     def generate_floor(self):
         for i in range(self.i-1):
             for j in range(self.j-1):
-                Floor(self.game, i+5, j+5, TILESIZE, TILESIZE, 96, 1183)
+                Floor(self.game, i+5, j+5, TILESIZE, TILESIZE, *self.floor)
 
     def generate_border(self):
         for i in range(1):
             for j in range(self.j):
-                Wall(self.game, i+4, j+4, 32, 32,  0, 2688)
+                Wall(self.game, i+4, j+4, 32, 32,  *self.side)
 
         for i in range(self.i):
             for j in range(1):
                 if i != 0:
-                    Wall(self.game, i+4, j+4, 32, 32, 96, 2720)
+                    Wall(self.game, i+4, j+4, 32, 32, *self.front)
 
         for i in range(self.i):
             for j in range(self.j):
                 if i == self.i-1:
-                    Wall(self.game, i+5, j+4, 32, 32, 0, 2688)
+                    Wall(self.game, i+5, j+4, 32, 32,  *self.side)
 
         for i in range(self.i+1):
             for j in range(self.j+2):
                 if j == self.j+1:
-                    Wall(self.game, i+4, j+3, 32, 32, 0, 2688)
+                    Wall(self.game, i+4, j+3, 32, 32,  *self.front)
 
     def inside_house(self):
         self.generate_house()
@@ -69,6 +71,10 @@ class NPC_House:
 
     def destroy_current(self):
         for sprite in self.game.all_sprites:
+            sprite.kill()
+        for sprite in self.game.interact_sprites:
+            sprite.kill()
+        for sprite in self.game.obstacle_sprites:
             sprite.kill()
 
 class Furniture(pygame.sprite.Sprite):

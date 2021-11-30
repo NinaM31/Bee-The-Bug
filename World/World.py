@@ -121,6 +121,10 @@ class World():
     def destroy(self):
         for sprite in self.game.all_sprites:
             sprite.kill() 
+        for sprite in self.game.interact_sprites:
+            sprite.kill()
+        for sprite in self.game.obstacle_sprites:
+            sprite.kill()
 
     def interact(self):
         self.player.interact()

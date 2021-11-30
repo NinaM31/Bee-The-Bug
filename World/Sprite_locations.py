@@ -37,7 +37,7 @@ interactable = {
         (36, 36),
         'Press Enter to exit'
     ),
-    'B': (
+    'Bb': (
         170, 5, 
         (38, 64),
         ["You don't have time to sleep!", "Can't sleep now", "Who stole the bank? can't sleep now"]
@@ -56,6 +56,11 @@ interactable = {
         210, 120, 
         (30, 33),
         'inside: Old wedding ring... and rotten apple'
+    ),
+    'A': (
+        217, 3, 
+        (30, 32),
+        ['Barrel of Apples', 'Fresh Apples']
     ),
 }
 Water_coordinates = {
@@ -189,7 +194,7 @@ H5_coordinates = {
 house_1 = {
     'V': (0, 2688), #vertical wall
     'H': (32, 2688), #horizontal wall 
-    'B': (64, 3104), #bed
+    'Bb': (64, 3104), #bed
     'b': (0, 3808), #book
     'T': (128, 2816), #table
     'C': (128, 2880), #chair
@@ -204,13 +209,15 @@ house_1 = {
     'LS': (63, 3900), #letters
     'L':(38, 3903), #letter
     'CH': (130, 3424), #chest
-    0: (14, 12) #width, height
+    0: (14, 12), #width, height
+    1: ((96, 2720), (0, 2688)), #wall border (front, side)
+    2: (96, 1183), #floor
 }
 
 house_2 = {
     'V': (0, 2688), #vertical wall
     'H': (32, 2688), #horizontal wall 
-    'B': (64, 3104), #bed
+    'Bb': (64, 3104), #bed
     'b': (96, 2848), #book
     'T': (128, 2816), #table
     'C': (128, 2880), #chair
@@ -221,39 +228,34 @@ house_2 = {
     'J': (0, 4030), #Jewelry
     'K': (96, 3072), #kitchen table
     'KS': (128, 3072), #kitchen sink
-    0: (14, 12) #width, height
+    0: (14, 12), #width, height
+    1: ((96, 2720), (0, 2688)), #wall border (front, side)
 }
 
 # Ants House
 house_3 = {
     'V': (224, 2752), #vertical wall
     'H': (64, 2784), #horizontal wall 
-    'B': (64, 3104), #bed
+    'Bb': (64, 3104), #bed
     'CA': (128, 1312), #carpet 
-    0: (16, 12) #width, height
+    0: (16, 12), #width, height
+    1: ((96, 2752), (224, 2806)), #wall border (front, side)
+    2: (160, 1248), #floor
 }
 
 house_4 = {
-    'V': (0, 2688), #vertical wall
-    'H': (32, 2688), #horizontal wall 
-    'B': (64, 3104), #bed
-    'b': (96, 2848), #book
-    'T': (128, 2816), #table
-    'C': (128, 2880), #chair
-    'BS': (96, 2848), #book shelf
-    'CB': (64, 2848), #cupboard
-    'NT': (96, 2976), #nice table
-    'NC': (96, 3010), #nice chair
-    'J': (0, 4030), #Jewelry
-    'K': (96, 3072), #kitchen table
-    'KS': (128, 3072), #kitchen sink
-    0: (14, 12) #width, height
+    'V': (128, 2688), #vertical wall
+    'H': (160, 2688), #horizontal wall 
+    'CA': (0, 1152), #carpet 
+    0: (10, 9), #width, height
+    1: ((224, 2720), (128, 2741)), #wall border (front, side)
+    2: (0, 1184), #floor
 }
 
 house_5 = {
     'V': (0, 2688), #vertical wall
     'H': (32, 2688), #horizontal wall 
-    'B': (64, 3104), #bed
+    'Bb': (64, 3104), #bed
     'b': (96, 2848), #book
     'T': (128, 2816), #table
     'C': (128, 2880), #chair
@@ -264,5 +266,4 @@ house_5 = {
     'J': (0, 4030), #Jewelry
     'K': (96, 3072), #kitchen table
     'KS': (128, 3072), #kitchen sink
-    0: (14, 12) #width, height
 }

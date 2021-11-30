@@ -98,12 +98,44 @@ class OnRoad(pygame.sprite.Sprite):
 
 class Accesories(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
+        self.game = game
+        self.t = t
         self._layer = OBJECT_LAYER
-        self.groups = game.all_sprites
+
+        if t in interactable.keys():
+            self.groups = game.all_sprites, game.interact_sprites
+            ix, iy, (iw, ih), text = interactable[self.t]
+            self.text = text
+            self.interactable = game.interactable.get_sprite(ix, iy, iw, ih)
+        else:
+            self.groups = game.all_sprites
+
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.image = game.world_spritesheet.get_sprite(loc_x, loc_y, w, h)
         self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+        self.loc_x = loc_x
+        self.loc_y = loc_y
+        self.w = w
+        self.h = h
+
+    def interact(self):
+        x, y = self.rect.x, self.rect.y
+        self.image = self.interactable
+        self.rect = self.image.get_rect()
+
+        self.rect.x = x
+        self.rect.y = y
+
+    def uninteract(self):
+        x, y = self.rect.x, self.rect.y
+
+        self.image = self.game.world_spritesheet.get_sprite(self.loc_x, self.loc_y, self.w, self.h)
+        self.rect = self.image.get_rect()
+        
         self.rect.x = x
         self.rect.y = y
 
