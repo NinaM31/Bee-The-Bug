@@ -158,7 +158,7 @@ class House(pygame.sprite.Sprite):
         self._layer = OBJECT_LAYER
         self.house = house
 
-        if t in ['D', 'G']:
+        if t in ['D', 'GA']:
             self.groups = game.all_sprites, game.interact_sprites
             ix, iy, (iw, ih), text = interactable[self.t]
             self.text = text

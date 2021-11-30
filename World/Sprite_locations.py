@@ -22,7 +22,7 @@ interactable = {
         (36, 60),
         'Press Enter to get inside'
     ),
-    'G': (
+    'GA': (
         8, 181, 
         (65, 60),
         'Press Enter to get inside'
@@ -191,7 +191,7 @@ H5_coordinates = {
     'RW': (64, 2112), #wall right
     'R': (96, 2240), #roof
     'CH': (228, 2240), #chimney
-    'G': (128, 2562), #gate
+    'GA': (128, 2562), #gate
     'W': (32, 2376), #window
 }
 
@@ -219,22 +219,14 @@ house_1 = {
     2: (96, 1183), #floor
 }
 
+# Hopper
 house_2 = {
-    'V': (0, 2688), #vertical wall
-    'H': (32, 2688), #horizontal wall 
-    'Bb': (64, 3104), #bed
-    'b': (96, 2848), #book
-    'T': (128, 2816), #table
-    'C': (128, 2880), #chair
-    'BS': (96, 2848), #book shelf
-    'CB': (64, 2848), #cupboard
-    'NT': (96, 2976), #nice table
-    'NC': (96, 3010), #nice chair
-    'J': (0, 4030), #Jewelry
-    'K': (96, 3072), #kitchen table
-    'KS': (128, 3072), #kitchen sink
-    0: (14, 12), #width, height
-    1: ((96, 2720), (0, 2688)), #wall border (front, side)
+    'V': (128, 2688), #vertical wall
+    'H': (160, 2688), #horizontal wall 
+    'CA': (160, 1184), #carpet 
+    0: (10, 7), #width, height
+    1: ((224, 2720), (128, 2741)), #wall border (front, side)
+    2: (0, 1248), #floor
 }
 
 # Ants House
@@ -247,7 +239,7 @@ house_3 = {
     1: ((96, 2752), (224, 2806)), #wall border (front, side)
     2: (160, 1248), #floor
 }
-
+# Fly
 house_4 = {
     'V': (128, 2688), #vertical wall
     'H': (160, 2688), #horizontal wall 
@@ -257,10 +249,11 @@ house_4 = {
     2: (0, 1184), #floor
 }
 
+# Bank
 house_5 = {
     'TT': (2, 3397),
     'CA': (64, 1248),
-    0: (7, 7), #width, height
+    0: (8, 10), #width, height
     1: ((96, 2720), (0, 2688)), #wall border (front, side)
     2: (64, 1216), #floor
 }

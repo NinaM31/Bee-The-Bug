@@ -60,7 +60,7 @@ class NPC_House:
         self.generate_floor()
         self.generate_border()
 
-        self.player = Player(self.game, self.j, self.i)
+        self.player = Player(self.game, self.j-1, self.i-1)
 
         while self.inside:
             self.event()
