@@ -125,7 +125,7 @@ class Player(pygame.sprite.Sprite):
             keys = pygame.key.get_pressed()
             for hit in hits:
                 if keys[pygame.K_SPACE] and not self.display_feed:
-                    self.feedback = Feedback(self.game, hit, 0, 400)
+                    self.feedback = Feedback(self.game, hit, 0, 450)
                     self.display_feed = True
                 
                 hit.interact()

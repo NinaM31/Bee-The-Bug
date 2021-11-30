@@ -1,7 +1,7 @@
 import random
 import pygame 
 
-from Components.Config import WHITE, BERRY, GOLD, BODY, WIN_WIDTH, WIN_HEIGHT
+from Components.Config import WHITE, BERRY, GOLD, DARKBLUE, BODY, WIN_WIDTH, WIN_HEIGHT
 from Components.Styles import Spritesheet
 
 
@@ -83,12 +83,12 @@ class Feedback(pygame.sprite.Sprite):
         else:
             text = sprite.text
 
-        self.textSurf = self.font.render(text, 1, BERRY)
+        self.textSurf = self.font.render(text, 1, DARKBLUE)
         W = self.textSurf.get_width()
         H = self.textSurf.get_height()
 
-        self.image = game.feedback_sprite.get_sprite(0, 0, WIN_WIDTH, 200)
-        self.image.blit(self.textSurf, [WIN_WIDTH/2 - W/2, 100/2 - H/2])
+        self.image = game.feedback_sprite.get_sprite(0, 0, WIN_WIDTH, 150)
+        self.image.blit(self.textSurf, [WIN_WIDTH/2 - W/2, 150/2 - H/2])
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
