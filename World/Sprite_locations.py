@@ -5,17 +5,17 @@ interactable = {
     'F': (
         60, 0, 
         (98, 98),
-        'Nice Fountain, Looks new.'
+        ['Nice Fountain, Looks new.', 'Fresh and clear Water.', 'New fancy Fountain.']
     ),
     'H': (
         0, 0, 
         (32, 32),
-        ['Narrow hole on the ground', 'Some narrow hole', 'Hidden hole beside tree']
+        ['Narrow hole on the ground.', 'Some narrow hole.', 'Hidden hole beside tree.', "Can't get inside too narrow."]
     ),
     'DB': (
         0, 72, 
         (35, 58),
-        ['Beeware the water', 'Old bridge be careful', 'Bank in the middle', "Don't cut trees"]
+        ['Beeware the water.', 'Old bridge be careful.', 'Bank in the middle.', "Don't cut trees."]
     ),
     'D': (
         50, 106, 
