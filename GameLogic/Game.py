@@ -29,7 +29,7 @@ class Game:
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
         self.character_spritesheet = Spritesheet('assets/bee.png')
-        
+
         self.interactable = Spritesheet('assets/interactable.png')
         self.feedback_sprite = Spritesheet('assets/feedback.png')
 
@@ -54,8 +54,23 @@ class Game:
         self.endMenue.load_assets()
         self.endMenue.display()
     
+    def show_house(self):
+        self.house_sprites.update()
+        self.player_sprites.update()
+
+        self.screen.fill(BLACK)
+
+        self.house_sprites.draw(self.screen)
+        self.player_sprites.draw(self.screen)
+        
+        self.clock.tick(FPS)
+        self.timer.tick(self.screen)
+        pygame.display.update()
+
     def init_sprites(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
+        self.player_sprites = pygame.sprite.LayeredUpdates()
+        self.house_sprites = pygame.sprite.LayeredUpdates()
         self.obstacle_sprites = pygame.sprite.LayeredUpdates()
         self.interact_sprites = pygame.sprite.LayeredUpdates()
         self.bridge_sprites = pygame.sprite.LayeredUpdates()
@@ -70,6 +85,7 @@ class Game:
 
     def update(self):
         self.all_sprites.update()
+        self.world.check_inside_house()
 
     def events(self):
         for event in pygame.event.get():
@@ -88,5 +104,3 @@ class Game:
             self.events()
             self.draw()
             self.update()
-            
-            

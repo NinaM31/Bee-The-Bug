@@ -2,6 +2,7 @@ import pygame
 
 from GameLogic.data import  *
 from GameLogic.Player import Player
+from World.House import NPC_House
 from World.Sprites import *
 from World.Sprite_locations import *
 
@@ -40,13 +41,17 @@ class World():
                 data.append( (t, (x, y, w, h)) )
             return data
         
-    def __generate(self, generation_data, coordinates, class_name):
+    def __generate(self, generation_data, coordinates, class_name, extras=None):
         for data in generation_data:
             t = data[0]
             x, y, w, h = data[1]
 
             loc_x, loc_y = coordinates[t]
-            globals()[class_name](self.game, x, y, w, h, loc_x, loc_y, t)
+
+            if extras:
+                globals()[class_name](self.game, x, y, w, h, loc_x, loc_y, t, extras)
+            else:
+                globals()[class_name](self.game, x, y, w, h, loc_x, loc_y, t)
                 
     def generate_water(self):
         water_data = self.read_data('data/water.txt')
@@ -77,7 +82,8 @@ class World():
         for i in range(5):
             house_data= self.read_data(f'data/house{i+1}.txt')
             coordinates= eval(f'H{i+1}_coordinates')
-            self.__generate(house_data, coordinates, 'House')
+            house= self.read_data(f'data/house_{i+1}.txt')
+            self.__generate(house_data, coordinates, 'House', house)
 
     def generate_borders(self):
         for i in range(1):
@@ -98,16 +104,21 @@ class World():
                 if j == 39:
                     Border(self.game, i, j+1, 32, 10, 32, 0)
 
+    def check_inside_house(self):
+        if self.player.entered_house:
+            self.house = NPC_House(self.game, self.player.current_house, self.player)
+            self.house.inside_house()
+            self.player.entered_house = False
+
     def generate_world(self):
         self.generate_borders()
         self.generate_land()
         self.generate_water()
         self.generate_plants()
         
-        
         self.generate_houses()
         self.generate_onRoad()
         self.Home_accessories()
         self.generate_bridges()
 
-        Player(self.game, 7, 9)
+        self.player = Player(self.game, 7, 9)

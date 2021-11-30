@@ -95,6 +95,9 @@ class OnRoad(pygame.sprite.Sprite):
         
         self.rect.x = x
         self.rect.y = y
+    
+    def action(self):
+        pass
 
 class Accesories(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
@@ -119,11 +122,12 @@ class Bridge(pygame.sprite.Sprite):
         self.rect.y = y
 
 class House(pygame.sprite.Sprite):
-    def __init__(self, game, x, y, w, h, loc_x, loc_y, t):
+    def __init__(self, game, x, y, w, h, loc_x, loc_y, t, house):
         self.game = game
         self.t = t
         self.interacted = False
         self._layer = OBJECT_LAYER
+        self.house = house
 
         if t == 'D':
             self.groups = game.all_sprites, game.interact_sprites
@@ -162,3 +166,6 @@ class House(pygame.sprite.Sprite):
         
         self.rect.x = x
         self.rect.y = y
+
+    def action(self):
+        print('Enter house')

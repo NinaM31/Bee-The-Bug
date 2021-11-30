@@ -149,3 +149,85 @@ H5_coordinates = {
     'G': (128, 2562), #gate
     'W': (32, 2376), #window
 }
+
+#Ladybug
+house_1 = {
+    'V': (0, 2688), #vertical wall
+    'H': (32, 2688), #horizontal wall 
+    'B': (64, 3104), #bed
+    'b': (31, 3808), #book
+    'T': (128, 2816), #table
+    'C': (128, 2880), #chair
+    'BS': (96, 2848), #book shelf
+    'CB': (64, 2848), #cupboard
+    'NT': (96, 2976), #nice table
+    'NC': (96, 3010), #nice chair
+    'J': (0, 4030), #Jewelry
+    'K': (96, 3072), #kitchen table
+    'KS': (128, 3072), #kitchen sink
+    'CA': (160, 1152), #carpet 
+}
+
+house_2 = {
+    'V': (0, 2688), #vertical wall
+    'H': (32, 2688), #horizontal wall 
+    'B': (64, 3104), #bed
+    'b': (96, 2848), #book
+    'T': (128, 2816), #table
+    'C': (128, 2880), #chair
+    'BS': (96, 2848), #book shelf
+    'CB': (64, 2848), #cupboard
+    'NT': (96, 2976), #nice table
+    'NC': (96, 3010), #nice chair
+    'J': (0, 4030), #Jewelry
+    'K': (96, 3072), #kitchen table
+    'KS': (128, 3072) #kitchen sink
+}
+
+house_3 = {
+    'V': (0, 2688), #vertical wall
+    'H': (32, 2688), #horizontal wall 
+    'B': (64, 3104), #bed
+    'b': (96, 2848), #book
+    'T': (128, 2816), #table
+    'C': (128, 2880), #chair
+    'BS': (96, 2848), #book shelf
+    'CB': (64, 2848), #cupboard
+    'NT': (96, 2976), #nice table
+    'NC': (96, 3010), #nice chair
+    'J': (0, 4030), #Jewelry
+    'K': (96, 3072), #kitchen table
+    'KS': (128, 3072) #kitchen sink
+}
+
+house_4 = {
+    'V': (0, 2688), #vertical wall
+    'H': (32, 2688), #horizontal wall 
+    'B': (64, 3104), #bed
+    'b': (96, 2848), #book
+    'T': (128, 2816), #table
+    'C': (128, 2880), #chair
+    'BS': (96, 2848), #book shelf
+    'CB': (64, 2848), #cupboard
+    'NT': (96, 2976), #nice table
+    'NC': (96, 3010), #nice chair
+    'J': (0, 4030), #Jewelry
+    'K': (96, 3072), #kitchen table
+    'KS': (128, 3072) #kitchen sink
+}
+
+house_5 = {
+    'V': (0, 2688), #vertical wall
+    'H': (32, 2688), #horizontal wall 
+    'B': (64, 3104), #bed
+    'b': (96, 2848), #book
+    'T': (128, 2816), #table
+    'C': (128, 2880), #chair
+    'BS': (96, 2848), #book shelf
+    'CB': (64, 2848), #cupboard
+    'NT': (96, 2976), #nice table
+    'NC': (96, 3010), #nice chair
+    'J': (0, 4030), #Jewelry
+    'K': (96, 3072), #kitchen table
+    'KS': (128, 3072) #kitchen sink
+}
