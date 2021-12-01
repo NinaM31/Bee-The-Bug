@@ -16,6 +16,9 @@ class Stories:
         self.ladybug_story = Spritesheet('assets/stories/lady.png')
         self.bee_story = Spritesheet('assets/stories/bee.png')
         self.ant_story = Spritesheet('assets/stories/ant.png')
+        self.hopper_story = Spritesheet('assets/stories/hopper.png')
+        self.fly_story = Spritesheet('assets/stories/fly.png')
+
         self.prison_audio = "assets/audio/prison.mp3"
         self.boo_audio = "assets/audio/boo.mp3"
         self.yay_audio = "assets/audio/yay.mp3"
@@ -44,9 +47,61 @@ class Stories:
                 ('Can you help me detective?', (600, 520), RED),
                 ('...', (110, 520), YELLOW),
                 ('I am truly innocent', (610, 520), RED),
-                ('Bad luck you know', (610, 520), RED),
+                ('Why do they suspect you ?', (200, 520), YELLOW),
+                ("My finger prints are at the bank", (500, 520), RED),
+                ("Ooh...", (110, 520), YELLOW),
+                ("Cause I'm the only employee at the bank T_T", (500, 520), RED),
+                ('And.. Bad luck you know', (610, 520), RED),
                 ('..I dont know', (110, 520), YELLOW),
             ]
+
+        self.bee_dialog = [
+            ('You are now a prime suspect', (400, 50), YELLOW),
+            ("No one suspected you until", (400, 100), YELLOW),
+            ("you jokefuly decided to say it's you -_-", (400, 150), YELLOW),
+            ("Only criminals confess to their crimes.", (400, 200), YELLOW),
+            ("now you're sentenced to 5 years in prison. ", (400, 250) , YELLOW),
+            ("On the bright side Ladybug can take care of her kids", (400, 300), YELLOW),
+            ("You're still someone's hero", (500, 350), YELLOW)
+        ]
+
+        self.fly_dialog = [
+            ('You were wrong detective', (400, 50), YELLOW),
+            ("Fly is only a jealous bug", (400, 100), YELLOW),
+            ("There is not enough evidence to put him to jail", (400, 150), YELLOW),
+            ("... Fly is a heartbroken bug", (400, 200), YELLOW),
+            ("His wife left him for an Ant. ", (400, 250) , YELLOW),
+            ("She replaced his old ring for a fresh apple ", (400, 300) , YELLOW),
+        ]
+
+        self.lady_dialog = [
+            ('Sorry detective but you missed', (400, 50), YELLOW),
+            ("Now lady will be sentenced to 5 years in prison", (400, 100), YELLOW),
+            ("And no one will take care of her children", (400, 150), YELLOW),
+            ("... Uhm hmm on the bright side", (400, 200) , YELLOW),
+            ("Fly is happy. Maybe you ..", (400, 250) , YELLOW),
+            (" could suggest him to take care", (400, 300) , YELLOW),
+            ("of his OWN children ._.!", (500, 350) , YELLOW),
+        ]
+
+        self.hopper_dialog = [
+            ('Nah you are wrong Detective', (400, 50), YELLOW),
+            ("Hopper is innocent", (400, 100), YELLOW),
+            ("Now lady will be sentenced to 5 years in prison", (400, 150), YELLOW),
+            ("Because you failed to bring strong evidence", (400, 200), YELLOW),
+            ("... I think it was obvious he is innocent", (400, 250) , YELLOW),
+            ("I try not to judge...", (400, 300) , YELLOW),
+        ]
+
+        self.ant_dialog = [
+            ('"Poor ladybug" said the criminal', (400, 50), YELLOW),
+            ('Yet ladybug "In 10 min theyll make it official" ', (400, 100), YELLOW),
+            ('How did he know she is the prime suspect?', (400, 150), YELLOW),
+            ("Shovel in his house and holes all over the ground", (400, 200), YELLOW),
+            ("His company is going banckrupt", (400, 250), YELLOW),
+            ("Missed Ladybugs birthday, cause he was planing his crime", (400, 300), YELLOW),
+            ("Nice catch detective", (400, 350) , YELLOW),
+        ]
 
     def load_assets(self, audio=None):
         if not audio:
@@ -93,33 +148,31 @@ class Stories:
         if self.l.pressed(mouse_pos, mouse_pressed):
             self.picked = True
             self.key = 'l'
-            self.ladyBug = NPC(self.game, self.ladybug_story, 450, 350)
-            self.load_assets(self.boo_audio)
+            self.ladyBug = NPC(self.game, self.ladybug_story, 480, 350)
+            pygame.mixer.Sound(self.boo_audio).play()
 
         if self.a.pressed(mouse_pos, mouse_pressed):
             self.picked = True
             self.key = 'a'
-            self.ant = NPC(self.game, self.ant_story, 450, 300)
-            self.load_assets(self.yay_audio)
+            self.ant = NPC(self.game, self.ant_story, 480, 300)
+            pygame.mixer.Sound(self.yay_audio).play()
 
         if self.b.pressed(mouse_pos, mouse_pressed):
             self.picked = True
             self.key = 'b'
-            self.load_assets(self.boo_audio)
+            pygame.mixer.Sound(self.boo_audio).play()
 
         if self.h.pressed(mouse_pos, mouse_pressed):
             self.picked = True
             self.key = 'h'
-            self.load_assets(self.boo_audio)
+            self.hopper = NPC(self.game, self.hopper_story, 480, 300)
+            pygame.mixer.Sound(self.boo_audio).play()
 
         if self.f.pressed(mouse_pos, mouse_pressed):
             self.picked = True
             self.key = 'f'
-            self.load_assets(self.boo_audio)
-
-        if self.picked:
-            self.start_sound(0.5, 0)
-            
+            self.fly = NPC(self.game, self.fly_story, 480, 300)
+            pygame.mixer.Sound(self.boo_audio).play()       
 
     def play_story(self):
         self.suspects[self.key]()
@@ -128,18 +181,40 @@ class Stories:
         self.ladyBug.animate()
         self.bee.animate()
 
+        for dialog in self.lady_dialog:
+            text, (x, y), color = dialog
+            draw_text(self.game.screen, 40, text, x, y, color)
+
     def play_ant(self):
         self.ant.animate()
         self.bee.animate()
 
+        for dialog in self.ant_dialog:
+            text, (x, y), color = dialog
+            draw_text(self.game.screen, 40, text, x, y, color)
+
     def play_hopper(self):
-        print('hopper') 
+        self.hopper.animate()
+        self.bee.animate() 
+
+        for dialog in self.hopper_dialog:
+            text, (x, y), color = dialog
+            draw_text(self.game.screen, 40, text, x, y, color)
 
     def play_bee(self):
         self.bee.animate()
+        
+        for dialog in self.bee_dialog:
+            text, (x, y), color = dialog
+            draw_text(self.game.screen, 40, text, x, y, color)
 
     def play_fly(self):
-        print('fly')
+        self.fly.animate()
+        self.bee.animate() 
+
+        for dialog in self.fly_dialog:
+            text, (x, y), color = dialog
+            draw_text(self.game.screen, 40, text, x, y, color)
 
     def pick_criminal(self):
         self.l.draw_button(self.game.screen)
@@ -161,8 +236,6 @@ class Stories:
 
         if self.current_page >= len(self.dialog_1):
             self.end_story()
-            self.game.playing = True
-            self.game.new()
             return
 
         self.ladyBug.animate()
@@ -181,7 +254,7 @@ class Stories:
         self.back.hovered(mouse_pos)
         self.skip.hovered(mouse_pos)
 
-    def beggining(self):
+    def beginning(self):
         self.waiting = True
         self.background = pygame.image.load('assets/prison.png').convert()
 
@@ -215,7 +288,7 @@ class Stories:
         self.f = Button('Mr. Fly', 200, 50, 300, 450)
 
         self.next = Button('Next', 150, 50, 340 , 550, bg=DARKBLUE, bg_hvr=BERRY)
-        self.bee = NPC(self.game, self.bee_story, 120, 300)
+        self.bee = NPC(self.game, self.bee_story, 100, 300)
 
         while self.waiting:
             for event in pygame.event.get():
@@ -226,18 +299,16 @@ class Stories:
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     self.choose()
 
-            self.game.screen.fill(PINK)
-            self.game.screen.blit(self.background, (0,0), pygame.Rect(100, 300, 800, 900))
-
             if not self.picked:
+                self.game.screen.blit(self.background, (0,0), pygame.Rect(100, 300, 800, 900))
                 self.pick_criminal()
                 draw_text(self.game.screen, 55, 'Pick the Criminal', WIN_WIDTH/2 , 550)
             else:
+                self.game.screen.fill(BLACK)
                 self.play_story()
                 self.game.all_sprites.draw(self.game.screen)
 
                 self.next.draw_button(self.game.screen)
-                
 
                 mouse_pos = pygame.mouse.get_pos()
                 mouse_pressed = pygame.mouse.get_pressed()
@@ -245,7 +316,6 @@ class Stories:
 
                 if self.next.pressed(mouse_pos, mouse_pressed):
                     self.end_story()
-                    self.stop_audio()
                     
             self.game.clock.tick(FPS)
             pygame.display.update()

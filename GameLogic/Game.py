@@ -2,7 +2,7 @@ import sys
 import pygame
 
 from Components.Config import WIN_WIDTH, WIN_HEIGHT, FPS, BLACK, BKGAUDIO, WHITE
-from Components.Menu import StartMenu, EndMenu, SettingsMenu
+from Components.Menu import StartMenu, EndMenu
 from Components.Styles import Spritesheet
 from Components.Stories import Stories
 
@@ -22,7 +22,6 @@ class Game:
 
         self.startMenue = StartMenu(self)
         self.endMenue = EndMenu(self)
-        self.settingsMenue = SettingsMenu(self)
 
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
@@ -46,20 +45,17 @@ class Game:
         self.stories = Stories(self)
         self.stories.load_assets() 
         self.stories.start_sound(BKGAUDIO)
-        self.stories.beggining()
-
-    def show_settings(self):
-        self.settingsMenue.display()
+        self.stories.beginning()
+        self.new()
+        self.playing = True
 
     def game_over(self):
-        self.endMenue.load_assets()
-        self.endMenue.display()
-
         self.timer = None
         self.world = None
         self.stories = None
 
-        self.init_sprites()
+        self.endMenue.load_assets()
+        self.endMenue.display()
 
     def init_sprites(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
@@ -86,14 +82,12 @@ class Game:
         if self.timer.time_end() or self.world.ended:
             self.world.destroy()
             self.timer.alert_user = False
-
-            self.playing = False
             self.world.stop_audio()
 
             self.stories.start_sound(BKGAUDIO)
             self.stories.ending()
             self.stories.stop_audio()
-            self.game_over()
+            self.playing = False
 
     def draw(self):
         self.update() 

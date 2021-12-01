@@ -120,7 +120,6 @@ class EndMenu(Menu):
         if self.END.pressed(mouse_pos, mouse_pressed):
             pygame.mixer.music.stop()
             self.waiting = False
-            self.game.game_intro()
     
     def draw(self, screen):
         self.END.draw_button(screen)
@@ -134,40 +133,3 @@ class EndMenu(Menu):
     def load_assets(self):
         self.load_audio()
         self.start_sound()
-
-class SettingsMenu(Menu):
-    def __init__(self, game):
-        super().__init__(game, 'Settings', CAPTION='Settings')
-
-        self.SOUND = Button('Sound', 100, 50, c_r=True)
-        self.CONTINUE = Button('Continue', 100, 50, c_m=True)
-        self.BACK = Button('Back', 100, 50, c_l=True)
-
-        self.fg_color = WHITE
-
-    def check_buttons(self):
-        mouse_pos = pygame.mouse.get_pos()
-        mouse_pressed = pygame.mouse.get_pressed()
-
-        if self.SOUND.pressed(mouse_pos, mouse_pressed):
-            pass
-        if self.CONTINUE.pressed(mouse_pos, mouse_pressed):
-            pass
-        if self.BACK.pressed(mouse_pos, mouse_pressed):
-            pass
-    
-    def draw(self, screen):
-        self.BACK.draw_button(screen)
-        self.CONTINUE.draw_button(screen)
-        self.SOUND.draw_button(screen)
-
-        mouse_pos = pygame.mouse.get_pos()
-        self.SOUND.hovered(mouse_pos)
-        self.CONTINUE.hovered(mouse_pos)
-        self.BACK.hovered(mouse_pos)
-
-    def animation(self):
-        pass
-
-    def load_assets(self):
-        pass

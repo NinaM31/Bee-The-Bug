@@ -108,7 +108,17 @@ class Player(pygame.sprite.Sprite):
                     self.animation_loop = 1
 
     def collide_bridge(self, direction):
-        pass
+        if direction == 'x':
+                if self.x_change > 0:
+                    self.move_sprite_left()
+                if self.x_change < 0:
+                    self.move_sprite_right() 
+                    
+        if direction == 'y':
+            if self.y_change > 0:
+                self.move_sprite_up()
+            if self.y_change < 0:
+                self.move_sprite_down()
 
     def interact(self):
         hits = pygame.sprite.spritecollide(self, self.game.interact_sprites, False)

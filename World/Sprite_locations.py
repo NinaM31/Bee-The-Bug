@@ -175,7 +175,7 @@ interactable = {
     'Fly': (
         93, 235, 
         (30, 30),
-        ["Fly: ... get away I'm bussy", "Fly: you need something?", "Fly: Private property get out!", "Can't you read? this is private property"]
+        ["Fly: ... get away I'm busy", "Fly: you need something?", "Fly: Private property get out!", "Can't you read? this is private property"]
     ),
     'Hopper': (
         131, 237, 
