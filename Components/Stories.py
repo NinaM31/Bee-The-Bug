@@ -29,7 +29,7 @@ class Stories:
                 ('...', (100, 160), YELLOW),
                 ("I didn't do it, I was framed!", (550, 160), RED),
                 ('Interesting..', (100, 160), YELLOW),
-                ("In 10 min they'll take me away", (550, 160), RED),
+                ("In 10 min they'll make it official", (550, 160), RED),
                 ('Can you help me detective?', (550, 160), RED),
                 ('...', (100, 160), YELLOW),
                 ('I am truly innocent', (550, 140), RED),
