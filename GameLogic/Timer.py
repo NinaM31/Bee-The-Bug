@@ -11,6 +11,7 @@ class Timer:
         self.color = WHITE
         self.time_close = CLOSE_TO_END_BY
         self.timesup_audio = pygame.mixer.Sound("assets/audio/beep.mp3")
+        self.timesup_audio.set_volume(0.3)
 
     def start(self):
         self.start = time.time()
@@ -29,11 +30,7 @@ class Timer:
             self.color = RED
             self.alert_user = True
             
-
     def alert(self):
-        if self.time_end():
-            return
-
         if self.alert_user:
             self.timesup_audio.play()
             self.time_close = 0

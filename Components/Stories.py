@@ -72,6 +72,7 @@ class Stories:
         self.ladyBug.remove()
         self.bee.remove()
         self.waiting = False
+        self.current_page = 0
 
     def story_one(self):
         if self.current_page <= -1:
@@ -103,6 +104,7 @@ class Stories:
     def beggining(self):
         self.waiting = True
         self.background = pygame.image.load('assets/prison.png').convert()
+
         while self.waiting:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -111,6 +113,7 @@ class Stories:
 
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     self.check_buttons()
+
             self.game.screen.blit(self.background, (0,0), pygame.Rect(100, 300, 800, 900))
             self.draw_buttons()
             self.game.all_sprites.draw(self.game.screen)
@@ -120,4 +123,23 @@ class Stories:
         self.stop_audio()
 
     def ending(self):
-        pass
+        self.waiting = True
+        self.background = pygame.image.load('assets/prison.png').convert()
+
+        while self.waiting:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.waiting = False
+                    self.game.close_game()
+
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    self.check_buttons()
+
+            self.game.screen.fill(PINK)
+            # self.game.screen.blit(self.background, (0,0), pygame.Rect(100, 300, 800, 900))
+            # self.draw_buttons()
+            # self.game.all_sprites.draw(self.game.screen)
+            self.game.clock.tick(FPS)
+            # self.story_one()
+            pygame.display.update()
+        self.stop_audio()

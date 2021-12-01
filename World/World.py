@@ -1,6 +1,5 @@
 import pygame
 
-from GameLogic.data import  *
 from GameLogic.Player import Player
 from Components.Config import TILESIZE
 from World.House import NPC_House
@@ -11,8 +10,8 @@ from World.Sprite_locations import *
 
 class World():
     def __init__(self, game):
-        self.world_map = world_map[:][:]
         self.game = game
+        self.ended = False
         self.outside_audio = "assets/audio/background.mp3"
         
     def load_assets(self, audio=None):
@@ -112,9 +111,10 @@ class World():
             self.destroy()
             self.player.entered_house = False
 
-            self.house = NPC_House(self.game, self.player.current_house)
+            self.house = NPC_House(self.game, self.player.current_house, self)
             self.house.inside_house()
             self.create(x, y)  
+
 
     def create(self, x, y):
         self.player = None
@@ -132,6 +132,10 @@ class World():
         self.player.interact()
 
     def update(self):
+        if self.ended:
+            print('Ended')
+            self.destroy()
+
         self.check_inside_house()
 
     def generate_NPC(self):

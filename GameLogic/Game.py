@@ -79,6 +79,12 @@ class Game:
     def update(self):
         self.all_sprites.update()
 
+        if self.timer.time_end() or self.world.ended:
+            self.world.destroy()
+            self.timer.alert_user = False
+            self.playing = False
+            self.stories.ending()
+
     def draw(self):
         self.update() 
         self.screen.fill(BLACK)

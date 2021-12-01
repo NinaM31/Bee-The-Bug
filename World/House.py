@@ -5,9 +5,10 @@ from GameLogic.Player import Player
 from World.Sprite_locations import *
 
 class NPC_House:
-    def __init__(self, game, house_data):
+    def __init__(self, game, house_data, world):
         self.game = game
         self.inside = True
+        self.world = world
 
         self.house_data, self.house_id = house_data
 
@@ -66,11 +67,16 @@ class NPC_House:
             self.event()
             self.game.draw()
 
+            if self.player.ended_game:
+                self.destroy_current()
+                self.world.ended = True
+
             if self.player.entered_house:
                 self.destroy_current()
-                self.inside = False
+                
 
     def destroy_current(self):
+        self.inside = False
         for sprite in self.game.all_sprites:
             sprite.kill()
         for sprite in self.game.interact_sprites:

@@ -50,6 +50,7 @@ class Player(pygame.sprite.Sprite):
         self.interacting = False
         self.display_feed = False
         self.entered_house = False
+        self.ended_game = False
         self.feedback = None
 
     def update(self):
@@ -120,7 +121,10 @@ class Player(pygame.sprite.Sprite):
                     self.display_feed = True
 
                 if keys[pygame.K_RETURN] and self.display_feed:
-                    if hit.t in ['D', 'GA', 'CA']:
+                    if hit.t == 'END':
+                        self.ended_game = True
+
+                    elif hit.t in ['D', 'GA', 'CA']:
                         self.entered_house = True
 
                         if hit.t in ['D', 'GA']:
