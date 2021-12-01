@@ -41,14 +41,14 @@ class Stories:
     def load_assets(self, audio=None):
         if not audio:
             audio = self.prison_audio
-        pygame.mixer.music.load(audio)
+        self.prison_audio = pygame.mixer.Sound(audio)
 
     def start_sound(self, volume):
-        pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(volume)
+        self.prison_audio.play(-1)
+        self.prison_audio.set_volume(volume)
 
     def stop_audio(self):
-         pygame.mixer.music.stop()
+        self.prison_audio.stop()
 
     def check_buttons(self):
         mouse_pos = pygame.mouse.get_pos()

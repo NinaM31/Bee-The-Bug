@@ -72,6 +72,11 @@ interactable = {
         (20, 20),
         "Message: Dear Mr. Ant you need more investors, or your company dies."
     ),
+    'LA2': (
+        170, 107, 
+        (20, 20),
+        "Message: Dear Mr. Ant Why didn't you come to my bday?"
+    ),
     'LSA': (
         167, 135, 
         (30, 20),
@@ -112,15 +117,45 @@ interactable = {
         (15, 17),
         'Door Key ...'
     ),
+    'SG': (
+        216, 88, 
+        (19, 20),
+        'Birthday Gift'
+    ),
+    'BCK': (
+        216, 60, 
+        (32, 22),
+        'Party Cake ... looks like someone ate it'
+    ),
+    'bH': (
+        118, 136, 
+        (32, 22),
+        'Coding 101: by uncle bob'
+    ),
+    'bF': (
+        118, 136, 
+        (32, 22),
+        'Gardning: be an expert'
+    ),
+    'LSH': (
+        167, 135, 
+        (30, 20),
+        'Letters from Mr. Ant about the company '
+    ),
+    'LH': (
+        170, 107, 
+        (20, 20),
+        "Dear Hopper I'll save the company.. I'm smart bussiness man"
+    ),
     'Ant': (
         134, 208, 
         (32, 32),
-        ['Nice day today...', 'Have you heard the news?', 'Poor Lady bug', 'The bank was robbed! can you believe that']
+        ['Ant: Nice day today...', 'Ant: Have you heard the news?', 'Ant: Poor Lady bug', 'Ant: The bank was robbed! can you believe that']
     ),
     'LadyBug': (
         91, 208, 
         (32, 32),
-        ['Please help detective', "I didn't do this!", "They'll take me soon ...", 'Please help', 'Who will take care of my kids??']
+        ['LadyBug: Please help detective', "LadyBug: I didn't do this!", "LadyBug: They'll take me soon ...", 'LadyBug: Please help', 'LadyBug: Who will take care of my kids??']
     ),
 }
 Water_coordinates = {
@@ -275,6 +310,7 @@ house_1 = {
     'LS': (63, 3900), #letters
     'L':(38, 3903), #letter
     'CH': (130, 3424), #chest
+    'BCK': (128, 3903), #bday cake
     0: (14, 12), #width, height
     1: ((96, 2720), (0, 2688)), #wall border (front, side)
     2: (96, 1183), #floor
@@ -285,6 +321,15 @@ house_2 = {
     'V': (128, 2688), #vertical wall
     'H': (160, 2688), #horizontal wall 
     'CA': (160, 1184), #carpet 
+    'Bb': (64, 3104), #bed
+    'T': (128, 2816), #table
+    'C': (128, 2880), #chair
+    'SG': (5, 3965), #small gift
+    'LT': (160, 2912), #large table
+    'P': (224, 3742), #plant
+    'bH': (0, 3808), #book
+    'LSH': (63, 3900), #letters
+    'LH':(38, 3903), #letter
     0: (10, 7), #width, height
     1: ((224, 2720), (128, 2741)), #wall border (front, side)
     2: (0, 1248), #floor
@@ -310,6 +355,7 @@ house_3 = {
     'LT': (160, 3136), #large table
     'LSA': (63, 3900), #letters
     'LA':(38, 3903), #letter
+    'LA2':(38, 3903), #letter2
     'GC': (224, 3424), #golden chest
     0: (16, 12), #width, height
     1: ((96, 2752), (224, 2806)), #wall border (front, side)
@@ -328,6 +374,7 @@ house_4 = {
     'LF': (38, 3903), #letter
     'WI': (99, 3903), #writing ink
     'CHF': (130, 3424), #chest
+    'bF': (0, 3808), #book
     0: (9, 9), #width, height
     1: ((224, 2720), (128, 2741)), #wall border (front, side)
     2: (0, 1184), #floor
