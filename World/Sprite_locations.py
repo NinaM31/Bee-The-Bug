@@ -60,12 +60,37 @@ interactable = {
     'CH': (
         210, 120, 
         (30, 33),
-        'inside: Old wedding ring... and rotten apple'
+        'Inside: Old wedding ring... and rotten apple'
     ),
     'A': (
         217, 3, 
         (30, 32),
         ['Barrel of Apples', 'Fresh Apples']
+    ),
+    'LA': (
+        170, 107, 
+        (20, 20),
+        "Message: Dear Mr. Ant you need more investors, or your company dies."
+    ),
+    'LSA': (
+        167, 135, 
+        (30, 20),
+        'Urgent letters of company bankruptcy'
+    ),
+    'GT': (
+        172, 172, 
+        (35, 64),
+        'Gardening tools: Shovel and Axe '
+    ),
+    'GC': (
+        211, 158, 
+        (29, 32),
+        'Inside: Empty...'
+    ),
+    'DK': (
+        18, 146, 
+        (15, 17),
+        'Door Key ...'
     ),
     'Ant': (
         134, 208, 
