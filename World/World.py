@@ -118,7 +118,8 @@ class World():
 
     def create(self, x, y):
         self.player = None
-        self.generate_world()
+        print(x, y)
+        self.generate_world(x, y)
 
     def destroy(self):
         for sprite in self.game.all_sprites:
