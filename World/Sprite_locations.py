@@ -148,7 +148,7 @@ interactable = {
         "Dear Hopper I'll save the company.. I'm smart bussiness man"
     ),
     'Ant': (
-        134, 208, 
+        133, 207, 
         (32, 32),
         ['Ant: Nice day today...', 'Ant: Have you heard the news?', 'Ant: Poor Lady bug', 'Ant: The bank was robbed! can you believe that']
     ),
@@ -156,6 +156,16 @@ interactable = {
         91, 208, 
         (32, 32),
         ['LadyBug: Please help detective', "LadyBug: I didn't do this!", "LadyBug: They'll take me soon ...", 'LadyBug: Please help', 'LadyBug: Who will take care of my kids??']
+    ),
+    'Fly': (
+        93, 235, 
+        (30, 30),
+        ["Fly: ... get away I'm bussy", "Fly: you need something?", "Fly: Private property get out!", "Can't you read? this is private property"]
+    ),
+    'Hopper': (
+        131, 237, 
+        (32, 32),
+        ['Hopper: Hello detective', 'Hopper: Yestarday was awesome!', 'Hopper: I am an excellent swimmer']
     ),
 }
 Water_coordinates = {
@@ -185,8 +195,10 @@ Bridge_coordinates = {
 
 #loc_x. loc_y, x, y
 character = {
-    'Ant': (32, 0, 1500, 228), 
-    'LadyBug': (0, 0, 40, 232)
+    'Ant': (43, 0, 1500, 228), 
+    'LadyBug': (0, 0, 40, 232),
+    'Hopper': (132, 0, 92, 1100), 
+    'Fly': (86, 0, 1200, 1200),
 }
 
 Plant_coordinates = {
