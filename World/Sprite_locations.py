@@ -60,12 +60,12 @@ interactable = {
     'CH': (
         210, 120, 
         (30, 33),
-        'Inside: Old wedding ring... and rotten apple'
+        'Inside: Old wedding ring... and Fresh apple'
     ),
     'A': (
         217, 3, 
         (30, 32),
-        ['Barrel of Apples', 'Fresh Apples']
+        ['Barrel of Apples', 'Fresh Apples', 'Fresh Apples']
     ),
     'LA': (
         170, 107, 
@@ -76,6 +76,26 @@ interactable = {
         167, 135, 
         (30, 20),
         'Urgent letters of company bankruptcy'
+    ),
+    'LF': (
+        170, 107, 
+        (20, 20),
+        ["Draft: I hate you !!!", 'Draft: I will save enough money and sue you', 'Draft: I will save enough money and sue you', 'Draft: You owe me half of your property!']
+    ),
+    'CHF': (
+        210, 120, 
+        (30, 33),
+        'Inside: Money... enough to fix this house -_-'
+    ),
+    'WI': (
+        213, 208, 
+        (29, 20),
+        'Ink for writing'
+    ),
+    'BW': (
+        95, 166, 
+        (64, 35),
+        'Bag of Wheat'
     ),
     'GT': (
         172, 172, 
@@ -299,8 +319,16 @@ house_3 = {
 house_4 = {
     'V': (128, 2688), #vertical wall
     'H': (160, 2688), #horizontal wall 
+    'Bb': (32, 3104), #bed
     'CA': (0, 1152), #carpet 
-    0: (10, 9), #width, height
+    'T': (128, 2848), #round table
+    'C': (128, 2880), #chair
+    'BW': (0, 3487), #Wheat
+    'CD': (68, 3996), #candle dim
+    'LF': (38, 3903), #letter
+    'WI': (99, 3903), #writing ink
+    'CHF': (130, 3424), #chest
+    0: (9, 9), #width, height
     1: ((224, 2720), (128, 2741)), #wall border (front, side)
     2: (0, 1184), #floor
 }
