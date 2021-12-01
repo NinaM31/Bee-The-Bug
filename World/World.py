@@ -24,7 +24,7 @@ class World():
         pygame.mixer.music.set_volume(volume)
 
     def stop_audio(self):
-         pygame.mixer.music.stop()
+        pygame.mixer.music.unload()
 
     def read_data(self, file):
         with open(file) as f:
@@ -133,8 +133,8 @@ class World():
 
     def update(self):
         if self.ended:
-            print('Ended')
             self.destroy()
+            return
 
         self.check_inside_house()
 

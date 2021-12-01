@@ -28,13 +28,10 @@ class NPC(pygame.sprite.Sprite):
         self.animation_loop += 0.05
 
         if self.animation_loop > 3:
-            self.animation_loop = 1
+            self.animation_loop = 0
 
     def interact(self):
         pass
-
-    def remove(self):
-        self.kill()
 
 class NPC_world(pygame.sprite.Sprite):
     def __init__(self, game, x, y, loc_x, loc_y, t):

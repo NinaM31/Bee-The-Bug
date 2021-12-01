@@ -24,8 +24,6 @@ class Game:
         self.endMenue = EndMenu(self)
         self.settingsMenue = SettingsMenu(self)
 
-        self.timer = Timer()
-
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
         self.character_spritesheet = Spritesheet('assets/bee.png')
@@ -57,6 +55,12 @@ class Game:
         self.endMenue.load_assets()
         self.endMenue.display()
 
+        self.timer = None
+        self.world = None
+        self.stories = None
+
+        self.init_sprites()
+
     def init_sprites(self):
         self.all_sprites = pygame.sprite.LayeredUpdates()
         self.obstacle_sprites = pygame.sprite.LayeredUpdates()
@@ -65,7 +69,7 @@ class Game:
 
     def new(self):
         self.world = World(self)
-
+        self.timer = Timer()
         self.world.load_assets()
         self.world.start_sound(BKGAUDIO)
         self.timer.start()
@@ -82,8 +86,14 @@ class Game:
         if self.timer.time_end() or self.world.ended:
             self.world.destroy()
             self.timer.alert_user = False
+
             self.playing = False
+            self.world.stop_audio()
+
+            self.stories.start_sound(BKGAUDIO)
             self.stories.ending()
+            self.stories.stop_audio()
+            self.game_over()
 
     def draw(self):
         self.update() 

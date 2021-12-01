@@ -47,6 +47,16 @@ interactable = {
         (38, 64),
         ["You don't have time to sleep!", "Can't sleep now", "Who stole the bank? can't sleep now"]
     ),
+    'BbF': (
+        261, 90, 
+        (33, 66),
+        ["You don't have time to sleep!", "Can't sleep now", "Who stole the bank? can't sleep now"]
+    ),
+    'BbA': (
+        261, 6, 
+        (70, 69),
+        ["You don't have time to sleep!", "Can't sleep now", "Who stole the bank? can't sleep now"]
+    ),
     'L': (
         170, 107, 
         (20, 20),
@@ -356,7 +366,7 @@ house_2 = {
 house_3 = {
     'V': (224, 2752), #vertical wall
     'H': (64, 2784), #horizontal wall 
-    'Bb': (96, 3104), #bed
+    'BbA': (96, 3104), #bed
     'CA': (128, 1312), #carpet 
     'T': (64, 2976), #table
     'C': (128, 2880), #chair
@@ -382,7 +392,7 @@ house_3 = {
 house_4 = {
     'V': (128, 2688), #vertical wall
     'H': (160, 2688), #horizontal wall 
-    'Bb': (32, 3104), #bed
+    'BbF': (32, 3104), #bed
     'CA': (0, 1152), #carpet 
     'T': (128, 2848), #round table
     'C': (128, 2880), #chair
