@@ -29,6 +29,7 @@ class Game:
         self.world_spritesheet = Spritesheet('assets/all.png')
         self.water_spritesheet = Spritesheet('assets/water.png')
         self.character_spritesheet = Spritesheet('assets/bee.png')
+        self.npc_spritesheet = Spritesheet('assets/NPC.png')
 
         self.interactable = Spritesheet('assets/interactable.png')
         self.feedback_sprite = Spritesheet('assets/feedback.png')

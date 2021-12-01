@@ -4,6 +4,7 @@ from GameLogic.data import  *
 from GameLogic.Player import Player
 from Components.Config import TILESIZE
 from World.House import NPC_House
+from World.NPC import NPC_world
 from World.Sprites import *
 from World.Sprite_locations import *
 
@@ -133,6 +134,11 @@ class World():
     def update(self):
         self.check_inside_house()
 
+    def generate_NPC(self):
+        for key in character.keys():
+            loc_x, loc_y, x, y = character[key]
+            NPC_world(self.game, x, y, loc_x, loc_y)
+
     def generate_world(self, x=7, y=9):
         self.generate_borders()
         self.generate_land()
@@ -144,4 +150,5 @@ class World():
         self.Home_accessories()
         self.generate_bridges()
 
+        self.generate_NPC()
         self.player = Player(self.game, x, y)

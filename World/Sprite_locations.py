@@ -93,6 +93,12 @@ Bridge_coordinates = {
     'FB': (103, 1119), #front bottom
 }
 
+#loc_x. loc_y, x, y
+character = {
+    'Ant': (32, 0, 1500, 228), 
+    'LadyBug': (0, 0, 40, 232)
+}
+
 Plant_coordinates = {
     'W': (128, 192), #white flower
     'F': (224, 3742), #flower in pot

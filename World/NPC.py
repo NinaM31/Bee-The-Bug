@@ -1,7 +1,7 @@
 import math
 import pygame
 
-from Components.Config import STORYSIZE, NPC_LAYER
+from Components.Config import STORYSIZE, NPC_LAYER, TILESIZE
 
 class NPC(pygame.sprite.Sprite):
     def __init__(self, game, sheet, x, y):
@@ -34,3 +34,14 @@ class NPC(pygame.sprite.Sprite):
 
     def remove(self):
         self.kill()
+
+class NPC_world(pygame.sprite.Sprite):
+    def __init__(self, game, x, y, loc_x, loc_y):
+        self._layer = NPC_LAYER
+        self.groups = game.all_sprites
+        pygame.sprite.Sprite.__init__(self, self.groups)
+
+        self.image = game.npc_spritesheet.get_sprite(loc_x, loc_y, TILESIZE, TILESIZE)
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
