@@ -57,12 +57,12 @@ interactable = {
         (30, 20),
         'Letters from Mr. Fly (ex husband of Ladybug)'
     ),
-    'CH': (
+    'CHH': (
         210, 120, 
         (30, 33),
         'Inside: Old wedding ring... and Fresh apple'
     ),
-    'A': (
+    'AA': (
         217, 3, 
         (30, 32),
         ['Barrel of Apples', 'Fresh Apples', 'Fresh Apples']
@@ -238,7 +238,7 @@ Home_accessories_coordinates = {
     'EH': (192, 961), #empty hanger
     'BB': (128, 3531), #barrels
     'W': (0, 3531), #wheat
-    'A': (161, 3488), #barrel of apples
+    'AA': (161, 3488), #barrel of apples
     'M': (128, 895), #mail box
     'BS': (128, 2657), #bank sign
 }
@@ -326,7 +326,7 @@ house_1 = {
     'CA': (160, 1152), #carpet 
     'LS': (63, 3900), #letters
     'L':(38, 3903), #letter
-    'CH': (130, 3424), #chest
+    'CHH': (130, 3424), #chest
     'BCK': (128, 3903), #bday cake
     0: (14, 12), #width, height
     1: ((96, 2720), (0, 2688)), #wall border (front, side)
