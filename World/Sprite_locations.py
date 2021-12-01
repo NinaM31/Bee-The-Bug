@@ -147,6 +147,11 @@ interactable = {
         (20, 20),
         "Dear Hopper I'll save the company.. I'm smart bussiness man"
     ),
+    'END': (
+        24, 254, 
+        (32, 64),
+        "Press Enter to expose the real criminal. No turning back!"
+    ),
     'Ant': (
         133, 207, 
         (32, 32),
@@ -396,6 +401,7 @@ house_4 = {
 house_5 = {
     'TT': (2, 3397),
     'CA': (64, 1248),
+    'END': (130, 3618),
     0: (8, 10), #width, height
     1: ((96, 2720), (0, 2688)), #wall border (front, side)
     2: (64, 1216), #floor
