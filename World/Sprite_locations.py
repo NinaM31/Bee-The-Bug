@@ -50,7 +50,7 @@ interactable = {
     'L': (
         170, 107, 
         (20, 20),
-        "Message: I'll make you regret leaving me. I will end you'r life!!!"
+        "Message: I'll make you regret leaving me. I will end your life!!!"
     ),
     'LS': (
         167, 135, 
@@ -66,6 +66,16 @@ interactable = {
         217, 3, 
         (30, 32),
         ['Barrel of Apples', 'Fresh Apples']
+    ),
+    'Ant': (
+        134, 208, 
+        (32, 32),
+        ['Nice day today...', 'Have you heard the news?', 'Poor Lady bug', 'The bank was robbed! can you believe that']
+    ),
+    'LadyBug': (
+        91, 208, 
+        (32, 32),
+        ['Please help detective', "I didn't do this!", "They'll take me soon ...", 'Please help', 'Who will take care of my kids??']
     ),
 }
 Water_coordinates = {
@@ -239,8 +249,23 @@ house_2 = {
 house_3 = {
     'V': (224, 2752), #vertical wall
     'H': (64, 2784), #horizontal wall 
-    'Bb': (64, 3104), #bed
+    'Bb': (96, 3104), #bed
     'CA': (128, 1312), #carpet 
+    'T': (64, 2976), #table
+    'C': (128, 2880), #chair
+    'CB': (0, 2912), #cupboard
+    'SC': (64, 2938), #small cupboard
+    'FU': (0, 3326), #furnace
+    'GT': (32, 4192), #guradning tools
+    'P': (35, 3995), #plant
+    'DK': (234, 4192), #door key
+    'K': (96, 3072), #kitchen table
+    'KS': (128, 3072), #kitchen sink
+    'O': (32, 3040), #oven
+    'LT': (160, 3136), #large table
+    'LSA': (63, 3900), #letters
+    'LA':(38, 3903), #letter
+    'GC': (224, 3424), #golden chest
     0: (16, 12), #width, height
     1: ((96, 2752), (224, 2806)), #wall border (front, side)
     2: (160, 1248), #floor

@@ -137,7 +137,7 @@ class World():
     def generate_NPC(self):
         for key in character.keys():
             loc_x, loc_y, x, y = character[key]
-            NPC_world(self.game, x, y, loc_x, loc_y)
+            NPC_world(self.game, x, y, loc_x, loc_y, key)
 
     def generate_world(self, x=7, y=9):
         self.generate_borders()
