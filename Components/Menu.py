@@ -4,6 +4,7 @@ import pygame
 from Components.Config import LOWFPS, PINK, BLACK, WHITE, TITLE, BODY
 from Components.Input import Button
 from Components.Styles import draw_text
+from helper import resource_path
 
 class Menu(ABC):
     def __init__(self, game, HEADER='', HOWTO='', CAPTION=''):
@@ -18,7 +19,7 @@ class Menu(ABC):
         pygame.display.set_caption(CAPTION)
 
     def load_audio(self):
-        pygame.mixer.music.load(self._audio)
+        pygame.mixer.music.load(resource_path(self._audio))
 
     def start_sound(self):
         pygame.mixer.music.play(-1)
@@ -75,7 +76,7 @@ class StartMenu(Menu):
         self.PLAY = Button('Play', 100, 50, c_m=True)
         self.fg_color = BLACK
 
-        self.background = pygame.image.load('assets/intro.png').convert()
+        self.background = pygame.image.load(resource_path('assets/intro.png')).convert()
         self._audio = "assets/audio/intro.mp3"
 
     def check_buttons(self):
@@ -98,7 +99,6 @@ class StartMenu(Menu):
         self.load_audio()
         self.start_sound()
         
-
 class EndMenu(Menu):
     def __init__(self, game):
         super().__init__(
@@ -110,7 +110,7 @@ class EndMenu(Menu):
         self.END = Button('Back to Start', 170, 50, c_m=True)
         self.fg_color = WHITE
 
-        self.background = pygame.image.load('assets/end.png').convert()
+        self.background = pygame.image.load(resource_path('assets/end.png')).convert()
         self._audio = "assets/audio/end.mp3"
 
     def check_buttons(self):

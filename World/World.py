@@ -1,11 +1,16 @@
 import pygame
 
 from GameLogic.Player import Player
+
 from Components.Config import TILESIZE
+
 from World.House import NPC_House
 from World.NPC import NPC_world
 from World.Sprites import *
 from World.Sprite_locations import *
+
+
+from helper import resource_path
 
 
 class World():
@@ -17,7 +22,7 @@ class World():
     def load_assets(self, audio=None):
         if not audio:
             audio = self.outside_audio
-        pygame.mixer.music.load(audio)
+        pygame.mixer.music.load(resource_path(audio))
 
     def start_sound(self, volume):
         pygame.mixer.music.play(-1)
@@ -27,7 +32,7 @@ class World():
         pygame.mixer.music.unload()
 
     def read_data(self, file):
-        with open(file) as f:
+        with open(resource_path(file)) as f:
             lines = f.readlines() 
             data = []
         
@@ -115,11 +120,9 @@ class World():
             self.house.inside_house()
             self.create(x, y)  
 
-
     def create(self, x, y):
         self.player = None
-        print(x, y)
-        self.generate_world(x, y)
+        self.generate_world()
 
     def destroy(self):
         for sprite in self.game.all_sprites:
@@ -136,7 +139,6 @@ class World():
         if self.ended:
             self.destroy()
             return
-
         self.check_inside_house()
 
     def generate_NPC(self):
@@ -144,7 +146,7 @@ class World():
             loc_x, loc_y, x, y = character[key]
             NPC_world(self.game, x, y, loc_x, loc_y, key)
 
-    def generate_world(self, x=7, y=9):
+    def generate_world(self, x=8, y=9):
         self.generate_borders()
         self.generate_land()
         self.generate_water()

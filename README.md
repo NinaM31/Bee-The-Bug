@@ -2,3 +2,5 @@
 Help detective Bee solve the crime.
 
 ![bee](https://user-images.githubusercontent.com/57009004/144236464-758fbc51-cee5-4a07-ad65-f3dcc795a3a1.gif)
+
+             datas=[('./assets/*.png','./assets/'),('./assets/fonts/*','./assets/fonts/'), ('./assets/audio/*','./assets/audio/'),('./assets/stories/*.png','./assets/stories/'), ('data/*.txt', 'data/')],

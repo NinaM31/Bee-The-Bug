@@ -1,4 +1,7 @@
 venv
+dist
+build
+run.spec
 Diagrams
 pixArt
 __pycache__

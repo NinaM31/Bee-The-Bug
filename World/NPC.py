@@ -2,6 +2,7 @@ import math
 import pygame
 
 from Components.Config import STORYSIZE, NPC_LAYER, TILESIZE
+
 from World.Sprite_locations import interactable
 
 class NPC(pygame.sprite.Sprite):

@@ -2,7 +2,9 @@ import time
 import pygame
 
 from Components.Styles import draw_text
-from Components.Config import GAME_DURATION, CLOSE_TO_END_BY, WHITE, RED
+from Components.Config import GAME_DURATION, CLOSE_TO_END_BY, WHITE, RED, BODY
+from helper import resource_path
+
 
 class Timer:
     def __init__(self):
@@ -10,7 +12,7 @@ class Timer:
         self.alert_user = False
         self.color = WHITE
         self.time_close = CLOSE_TO_END_BY
-        self.timesup_audio = pygame.mixer.Sound("assets/audio/beep.mp3")
+        self.timesup_audio = pygame.mixer.Sound(resource_path("assets/audio/beep.mp3"))
         self.timesup_audio.set_volume(0.3)
 
     def start(self):
@@ -48,4 +50,4 @@ class Timer:
         minutes = passed // 60
         time = f'{minutes} : {sec}'
 
-        draw_text(screen, 32, time, 40, 20, self.color)
+        draw_text(screen, BODY, time, 40, 20, self.color)

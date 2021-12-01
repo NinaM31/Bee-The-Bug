@@ -165,7 +165,7 @@ interactable = {
     'Ant': (
         133, 207, 
         (32, 32),
-        ['Ant: Nice day today...', 'Ant: Have you heard the news?', 'Ant: Poor Lady bug', 'Ant: The bank was robbed! can you believe that']
+        ['Ant: Nice day today...', 'Ant: Have you heard the news?', 'Ant: Poor Lady bug', 'Ant: The bank was robbed! can you believe that', 'Ant: Poor Lady bug', 'Ant: Poor Lady bug']
     ),
     'LadyBug': (
         91, 208, 

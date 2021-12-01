@@ -1,8 +1,11 @@
 import pygame 
 
 from Components.Config import BLACK, FURNITURE_LAYER, GROUND_LAYER, TILESIZE
+
 from GameLogic.Player import Player
+
 from World.Sprite_locations import *
+
 
 class NPC_House:
     def __init__(self, game, house_data, world):

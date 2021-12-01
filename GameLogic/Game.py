@@ -9,6 +9,7 @@ from Components.Stories import Stories
 from GameLogic.Timer import Timer
 
 from World.World import World
+from helper import resource_path
 
 class Game:
     def __init__(self):
@@ -23,13 +24,13 @@ class Game:
         self.startMenue = StartMenu(self)
         self.endMenue = EndMenu(self)
 
-        self.world_spritesheet = Spritesheet('assets/all.png')
-        self.water_spritesheet = Spritesheet('assets/water.png')
-        self.character_spritesheet = Spritesheet('assets/bee.png')
-        self.npc_spritesheet = Spritesheet('assets/NPC.png')
+        self.world_spritesheet = Spritesheet(resource_path('assets/all.png'))
+        self.water_spritesheet = Spritesheet(resource_path('assets/water.png'))
+        self.character_spritesheet = Spritesheet(resource_path('assets/bee.png'))
+        self.npc_spritesheet = Spritesheet(resource_path('assets/NPC.png'))
 
-        self.interactable = Spritesheet('assets/interactable.png')
-        self.feedback_sprite = Spritesheet('assets/feedback.png')
+        self.interactable = Spritesheet(resource_path('assets/interactable.png'))
+        self.feedback_sprite = Spritesheet(resource_path('assets/feedback.png'))
 
     def close_game(self):
         self.playing = False

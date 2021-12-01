@@ -1,7 +1,9 @@
 import pygame
 
 from Components.Config import *
+
 from World.Sprite_locations import interactable
+
 
 class Water(pygame.sprite.Sprite):
     def __init__(self, game, x, y, w, h, loc_x, loc_y, t):

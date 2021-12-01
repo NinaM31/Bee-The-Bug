@@ -3,7 +3,7 @@ import pygame
 
 from Components.Config import WHITE, BERRY, GOLD, DARKBLUE, BODY, WIN_WIDTH, WIN_HEIGHT
 from Components.Styles import Spritesheet
-
+from helper import resource_path
 
 class Button:
     def __init__(self, txt, w, h, x=0, y=0, c_l=False, c_m=False, c_r=False, fg=WHITE, bg=BERRY, bg_hvr=GOLD):
@@ -12,7 +12,7 @@ class Button:
         self.bg_hvr = bg_hvr
         self.fg = fg
 
-        self.font = pygame.font.Font(None, BODY)
+        self.font = pygame.font.Font(resource_path('assets/fonts/Arial.ttf'), BODY)
 
         self.image = pygame.Surface( (w, h), pygame.SRCALPHA)
         self.image.fill(self.bg)
@@ -26,8 +26,8 @@ class Button:
         self.text_rect = self.text.get_rect(center=(w/2, h/2) )
         
         self.image.blit(self.text, self.text_rect)
-        self.click_audio = pygame.mixer.Sound("assets/audio/click.mp3")
-        self.click_audio.set_volume(0.1)
+        # self.click_audio = pygame.mixer.Sound(resource_path("assets/audio/click.wav"))
+        # self.click_audio.set_volume(0.1)
     
     def center(self, c_l, c_m, c_r):
         if c_l: self.center_left()
@@ -61,7 +61,7 @@ class Button:
     def pressed(self, mouse_pos, mouse_pressed):
         if self.image_rect.collidepoint(mouse_pos):
             if mouse_pressed[0]: 
-                self.click_audio.play(maxtime=500)
+                # self.click_audio.play(maxtime=500)
                 return True
         return False
 
@@ -75,7 +75,7 @@ class Feedback(pygame.sprite.Sprite):
         self.groups = game.all_sprites
         pygame.sprite.Sprite.__init__(self, self.groups)
 
-        self.font = pygame.font.SysFont(None, 32)
+        self.font = pygame.font.Font(resource_path('assets/fonts/Arial.ttf'), 24)
 
         if isinstance(sprite.text, list):
             r = random.randint(0, len(sprite.text)-1)
