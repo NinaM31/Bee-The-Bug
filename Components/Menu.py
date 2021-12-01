@@ -85,8 +85,6 @@ class StartMenu(Menu):
         if self.PLAY.pressed(mouse_pos, mouse_pressed):
             self.stop_audio()
             self.waiting = False
-            # self.game.playing = True
-            # self.game.new()
     
     def draw(self, screen):
         self.PLAY.draw_button(screen)

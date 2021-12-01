@@ -46,6 +46,8 @@ class Game:
 
         self.init_sprites()
         self.stories = Stories(self)
+        self.stories.load_assets() 
+        self.stories.start_sound(BKGAUDIO)
         self.stories.beggining()
 
     def show_settings(self):
