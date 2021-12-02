@@ -9,6 +9,14 @@ Last night the bank was robbed. At the crime scene; the gates were open and ther
 ```
 **SPACE** to interact with highlighted objects and **ARROW** keys to move. The map includes 5 different buildings one of which is the bank. Some clues have multiplle feedback respons once interacted, try to get everything out of them.
 
+## Samples
+<p float="left">
+  <img src='https://user-images.githubusercontent.com/57009004/144467229-bd245bb1-be29-48c0-bec6-bc34bf259068.png' width='200'/>
+  <img src='https://user-images.githubusercontent.com/57009004/144467246-1eec0c8b-c413-4a02-a239-4bccc77f3a1b.png' width='200'/>
+  <img src='https://user-images.githubusercontent.com/57009004/144467263-57e39d7c-f35a-4134-89c0-0303b96d0fcd.png' width='200'/>
+  <img src='https://user-images.githubusercontent.com/57009004/144467295-bacb6eb3-e72d-415a-9bd9-b376cb18614f.png' width='200'/>
+</p>
+
 # Game Characters
 ### Detective Bee
 You are playings as the detective bee. you can walk around the world and visit 4 different houses to search for clues. The fifth building is the bank you can either wait for the 5 minutes to pass by to expose the criminal or do an early submission inside the bank.
